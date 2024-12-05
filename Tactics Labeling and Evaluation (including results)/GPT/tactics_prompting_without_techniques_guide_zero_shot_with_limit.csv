@@ -1,0 +1,1281 @@
+Sid,Response,Technique_id,True_labels,Predicted_labels
+50106,"{
+   ""Sid"": ""50106"",
+   ""Technique ID"": ""T1557"",
+   ""Technique Name"": ""Man-in-the-Middle"",
+   ""Quotes"": ""MITRE ATT&CKs explanation for Man-in-the-Middle (T1557): 'Adversaries may position themselves between two interacting hosts to intercept or modify network traffic traveling between them.'"",
+   ""Explanation"": ""The Snort rule detects an SMB attack attempt indicative of a Responder tool, which is commonly used for Man-in-the-Middle (MiTM) attacks to poison SMB traffic. The rule specifically identifies attempts to intercept or manipulate SMB traffic, corresponding directly to the Man-in-the-Middle technique.""
+ }",['T1557'],['TA0006'],"['TA0006', 'TA0009']"
+50106,"{
+   ""Sid"": 1564,
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The adversary is attempting to exploit a weakness in an Internet-facing computer or program to gain access."",
+   ""Explanation"": ""The Snort rule detects access to 'login.htm', which might be targeted by adversaries attempting to exploit public-facing applications to bypass security measures. The usage of the rule aligns with the characteristic behavior of exploiting public interfaces as described in MITRE ATT&CK's T1190.""
+ }",['T1190'],['TA0001'],['TA0001']
+50106,"{
+   ""Sid"": 20158,
+   ""Technique ID"": ""T1078"",
+   ""Technique Name"": ""Valid Accounts"",
+   ""Quotes"": ""Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion."",
+   ""Explanation"": ""This Snort IDS rule detects attempts to login with default credentials on an Oracle GlassFish Server, which aligns with the MITRE ATT&CK technique T1078 (Valid Accounts). The rule is particularly focused on spotting unauthorized login attempts using common default username and password, which is a tactic often utilized by attackers who have obtained valid account credentials to gain access.""
+ }",['T1078'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']","['TA0005', 'TA0001', 'TA0004', 'TA0003']"
+10088,"{
+   ""Sid"": ""10088"",
+   ""Technique ID"": ""T1027"",
+   ""Technique Name"": ""Obfuscated Files or Information"",
+   ""Quotes"": ""Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding or otherwise obfuscating its contents on the system or in transit."",
+   ""Explanation"": ""The use of obfuscation techniques, such as modifying the subject line in an SMTP session as indicated by the Snort rule ('Subject|3A|...'), suggests potential attempts to evade detection by IDS, which relates closely to technique T1027.""
+ }",['T1027'],"['TA0006', 'TA0009']",['TA0005']
+5783,"{
+   ""Sid"": ""5783"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""collects input by recording key presses"",
+   ""Explanation"": ""The Snort rule is designed to detect a keylogger activity where keystrokes are logged, specifically transmitted via SMTP. This correlates with the Input Capture technique, where adversaries capture user input, often including key presses, which can be utilized to harvest sensitive information.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+29379,"{
+   ""Sid"": ""29379"",
+   ""Technique ID"": ""T1020"",
+   ""Technique Name"": ""Automated Exfiltration"",
+   ""Quotes"": ""Data exfiltration is performed without user interaction."",
+   ""Explanation"": ""The Snort rule describes an outbound connection possibly related to a trojan (Win.Trojan.Dropper) used for data exfiltration, where the connection specifically involves sending data to an external server over specific ports (777,778). The presence of hard-coded data in hex format suggests automated processes typical of automated exfiltration. The mapping to technique T1020 - Automated Exfiltration is relevant here because this technique covers scenarios where data exfiltration is done automatically without manual interaction, in line with the characteristics shown in the Snort rule.""
+ }",['T1020'],['TA0010'],['TA0010']
+29379,"{
+   ""Sid"": 7176,
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""collects input for the command and control servers by various methods ... including keylogging functionality."",
+   ""Explanation"": ""The rule detects potential retrieval of logs by a keylogger, which is a part of the 'Input Capture' technique where adversaries use keylogging to capture keystrokes from users.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+58733,"
+ {
+   ""Sid"": ""58733"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The Adversary may use the application's interfaces to communicate with a server and inject malicious data."",
+   ""Explanation"": ""This Snort rule detects attempts to exploit vulnerabilities in public-facing applications, specifically targeting a known vulnerability in Apache Log4j, by monitoring HTTP traffic for suspicious patterns that indicates remote code execution attempts. Given the nature of the vulnerability being exploited via Log4jwhich typically functions within server applications exposed to the outsidethis matches well with the 'Exploit Public-Facing Application' technique in the MITRE ATT&CK framework.""
+ }
+ ",['T1190'],['TA0001'],['TA0001']
+24087,"{
+   ""Sid"": ""24087"",
+   ""Technique ID"": ""T1071"",
+   ""Technique Name"": ""Application Layer Protocol"",
+   ""Quotes"": ""Command and control traffic that mimics normal application layer traffic, such as HTTP or DNS, may also use less typical ports"",
+   ""Explanation"": ""The rule detects a Trojan (Win.Trojan.Bledoor) that tunnels TCP traffic over a UDP connection, typically over DNS (port 53). This technique involves using a legitimate protocol in a way that is not intended to mask the malicious traffic, which aligns with MITRE's description of misuse of application layer protocols for command and control communication.""
+ }",['T1071'],['TA0010'],['TA0011']
+7551,"{
+   ""Sid"": ""7551"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Collects input events, such as keylogging, which is a common behavior of malwares like keyloggers"",
+   ""Explanation"": ""The Snort rule specifically mentions the detection of the Ardamax keylogger, which is a malware designed to log keystrokes. Thus, mapping this rule to the 'Input Capture' technique, which includes keylogging, is justified because the rule aims to detect traffic associated with keylogger malware by identifying specific SMTP traffic patterns related to Ardamax keylogger.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+30516,"{
+   ""Sid"": ""30516"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The adversary is trying to exploit a public-facing application to execute arbitrary code."",
+   ""Explanation"": ""The Snort IDS rule detects an attempted exploitation of the OpenSSL TLS v1.1 vulnerability known as Heartbleed, which affects public-facing applications using vulnerable OpenSSL versions for secure communication. This attack aims at retrieving sensitive data from the server's memory, usually affecting web servers, which aligns with the exploitation of public-facing applications.""
+ }",['T1190'],['TA0009'],['TA0001']
+26803,"{
+   ""Sid"": ""26803"",
+   ""Technique ID"": ""T1048"",
+   ""Technique Name"": ""Exfiltration Over Alternative Protocol"",
+   ""Quotes"": ""Exfiltration could include the use of protocols such as DNS or ICMP..."",
+   ""Explanation"": ""The Snort rule describes detecting DNS traffic that may be involved in data exfiltration based on several specific byte patterns. This aligns with the 'Exfiltration Over Alternative Protocol' technique where DNS is used as a non-standard protocol for data exfiltration.""
+ }",['T1048'],['TA0010'],['TA0010']
+33566,"{
+   ""Sid"": ""33566"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Adversaries may exploit software vulnerabilities in client applications to execute arbitrary code."",
+   ""Explanation"": ""The Snort rule detects an attempt to exploit a heap overflow vulnerability in Mozilla Firefox during the parsing of XSL files. By exploiting this vulnerability, an attacker could execute arbitrary code on the client machine, which aligns with the MITRE ATT&CK technique of Exploitation for Client Execution.""
+ }",['T1203'],['TA0005'],['TA0002']
+25579,"{
+   ""Sid"": ""25579"",
+   ""Technique ID"": ""T1566.001"",
+   ""Technique Name"": ""Phishing: Spearphishing Attachment"",
+   ""Quotes"": ""Adversaries may attach malicious files to spearphishing emails that can be used to execute attacker code."",
+   ""Explanation"": ""This Snort IDS rule is designed to detect HTTP responses that deliver a 'BookingInfo.zip' archive containing 'BookingInfo.exe', indicative of a spearphishing attempt with a malicious attachment aimed at executing code on the victim's system. The rule specifies the HTTP service and the detailed content match with a filename parameter designed to look legitimate but containing executable content, aligning well with a phishing approach employing deceptive files.""
+ }",['T1566.001'],['TA0001'],['TA0001']
+24705,"{
+   ""Sid"": ""24705"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may abuse legitimate extensible components of servers to execute attacker-controlled code."",
+   ""Explanation"": ""The rule detects a SQL injection attempt within a server web application which suggests that adversaries are abusing the web service interface to execute code or manipulate backend database, aligning with T1505 which involves exploitation of server software components.""
+ }",['T1505'],['TA0001'],['TA0003']
+13237,"{
+   ""Sid"": ""13237"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Related to keyloggers as a means to capture input data."",
+   ""Explanation"": ""The Snort rule describes the detection of a Keylogger activity, specifically referencing Keylogger 3.9.2, which aligns with the MITRE ATT&CK technique T1056, Input Capture, as keyloggers are one of the methods used to capture user inputs.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+32104,"{
+   ""Sid"": ""32104"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Technique T1203 involves exploiting vulnerabilities in software to execute code on a user's system."",
+   ""Explanation"": ""The Snort rule describes an attempt to exploit an ActiveX control vulnerability in Oracle WebCenter's `CheckOutAndOpen.dll`, which can lead to remote code execution via specially crafted file executions, usually leveraging web technologies as specified in the rule by HTTP and FTP services. The rule uses key indicators like specific content patterns expected in the exploit and the nature of interaction (to_client, established) typical to client-side attacks.""
+ }",['T1203'],['TA0005'],['TA0002']
+17386,"{
+   ""Sid"": ""17386"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The adversaries may attempt to exploit a weakness in an Internet-facing computer or program to gain access."",
+   ""Explanation"": ""The Snort rule describes an attempt to exploit the Lighttpd webserver's mod_fastcgi module vulnerability wherein CGI environment variables like SCRIPT_FILENAME can be manipulated to execute arbitrary commands or access files. This directly maps to exploiting public-facing applications, where the attacker targets exposed services to perform actions like unauthorized file access.""
+ }",['T1190'],['TA0007'],['TA0001']
+21318,"{
+   ""Sid"": ""21318"",
+   ""Technique ID"": ""T1071"",
+   ""Technique Name"": ""Application Layer Protocol"",
+   ""Quotes"": ""MITRE ATT&CK states that adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic."",
+   ""Explanation"": ""This technique is relevant because the Snort rule details an attempt by a trojan (FakeAV/TDSS) to make an outbound HTTP connection for command and control. The rule also checks for HTTP headers and method (GET), indicating the use of the HTTP protocol to blend malicious traffic with normal traffic, aligning with the Application Layer Protocol technique.""
+ }",['T1071'],['TA0011'],['TA0011']
+60338,"{
+   ""Sid"": ""60338"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Malware developed to run on servers can include features that allow the adversaries to extend their reach within the network."",
+   ""Explanation"": ""The Snort rule detects outbound connections from typical server-side PHP web shells, suggesting manipulation or addition of malicious components on the server.""
+ }",['T1505'],['TA0003'],['TA0003']
+49540,"{
+   ""Sid"": ""49540"",
+   ""Technique ID"": ""T1606"",
+   ""Technique Name"": ""Modify Cloud Compute Infrastructure"",
+   ""Quotes"": ""Adversaries may change the configuration of cloud compute resources or configurations to assist in targeted goals within an environment."",
+   ""Explanation"": ""This rule detects a configuration change attempt on a WordPress site, specifically altering default user roles to 'administrator'. Such changes can affect cloud environments hosting these services, aligning with the technique where adversaries modify cloud compute infrastructures to maintain persistence or escalate privileges.""
+ }",['T1606'],['TA0001'],['TA0006']
+58912,"{
+   ""Sid"": ""58912"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""adversaries may plant and use a web shell on a server to execute arbitrary system commands, which are usually sent over HTTPS."",
+   ""Explanation"": ""The Snort rule is designed to detect an upload attempt of a PHP web shell, which commonly uses the 'passthru' function to execute system commands. This aligns with the MITRE ATT&CK technique where adversaries use server software components such as web shells to maintain persistence and command execution capabilities on a web server.""
+ }",['T1505'],['TA0003'],['TA0003']
+31978,"{
+   ""Sid"": ""31978"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The adversary is trying to exploit a vulnerability in a public-facing application."",
+   ""Explanation"": ""This Snort IDS rule is designed to detect attempts to exploit the Shellshock vulnerability in Bash via CGI scripts, which typically run on public-facing web servers. The rule specifically looks for the unique pattern '() {' that indicates the utilization of Bash function parsing to execute arbitrary commands, a method used in the Shellshock exploit. This technique aligns with MITRE's T1190 as it involves the exploitation of vulnerabilities in public-facing applications.""
+ }",['T1190'],['TA0001'],['TA0001']
+37313,"{
+   ""Sid"": ""37313"",
+   ""Technique ID"": ""T1222"",
+   ""Technique Name"": ""File and Directory Permissions Modification"",
+   ""Quotes"": ""An adversary may modify the permissions of files and directories to evade intended permissions or disrupt services. Adversaries may add or remove file/directory permissions to allow or prevent intended users from accessing resources."",
+   ""Explanation"": ""The Snort rule aims at detecting an external entity attack attempting data exfiltration, which often involves modification of file or directory permissions to execute unauthorized actions. This mapping is relevant as it highlights methods that could be used to interfere with system operations to evade detection or impact availability, closely aligning with the rule's purpose of detecting such attempts over SMTP.""
+ }",['T1222'],['TA0010'],['TA0005']
+61160,"{
+   ""Sid"": ""61160"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""<titleJspWebShell By </title"",
+   ""Explanation"": ""The Snort IDS rule detects outbound connections potentially related to a JSP Webshell, identified by specific HTML title tags in the data stream. In MITRE ATT&CK, Technique T1505 pertains to the use of server software components to execute arbitrary code, which directly aligns with the function of web shells. Web shells are scripts or sets of scripts that enable remote administration, often used by attackers to persist on a compromised web server.""
+ }",['T1505'],['TA0003'],['TA0003']
+14075,"{
+   ""Sid"": ""14075"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Use of keylogging or other methods to capture information related to the interests or intent of the user. This includes capturing keystrokes."",
+   ""Explanation"": ""The Snort rule triggers on traffic related to 'Ultimate Keylogger', specifically mentioning 'Keylogger Report', which is indicative of the capture of user inputs or keystrokes. Since the rule detects keylogger activity, it aligns well with the MITRE ATT&CK technique T1056, Input Capture, which includes capturing keystrokes to gather information.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+39930,"{
+   ""Sid"": ""39930"",
+   ""Technique ID"": ""T1212"",
+   ""Technique Name"": ""Exploitation for Credential Access"",
+   ""Quotes"": ""Adversaries may exploit software vulnerabilities to gain access to credentials."",
+   ""Explanation"": ""The Snort rule describes an attempt to exploit a Siemens IP-Camera by accessing '/cgi-bin/readfile.cgi' with a query for 'ADMINID', likely to disclose administrator credentials. This activity aligns with the MITRE ATT&CK technique 'Exploitation for Credential Access' as it involves leveraging software vulnerabilities to obtain sensitive credential information.""
+ }",['T1212'],['TA0006'],['TA0006']
+29918,"{
+   ""Sid"": ""29918"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""System information disclosure via keylogging."",
+   ""Explanation"": ""The Snort rule points to malware activity associated with keylogging (Win.Keylogger.Vacky), specifically designed to capture keystrokes to disclose system information. MITRE's T1056 Input Capture technique encompasses actions like keylogging to intercept and log user inputs, which aligns with the detected activity in the rule.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+37379,"{
+   ""Sid"": ""37379"",
+   ""Technique ID"": ""T1110"",
+   ""Technique Name"": ""Brute Force"",
+   ""Quotes"": ""Adversaries may attempt to access accounts by using known username and incorrect password combinations."",
+   ""Explanation"": ""The Snort rule identifies a login attempt over HTTP using a default password for BinTec Elmeg. This behavior matches the technique of trying to access a system using default credentials or attempting numerous password inputs, commonly referred to as a brute force attack. The rule's focus on authentication with an Authorization header and a specific user-agent string encoded in Base64 ('YWRtaW46YmludGVj' which decodes to 'admin:bintec') indicates an attempt to exploit default username/password combinations, directly aligning with MITRE's description of T1110.""
+ }",['T1110'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']",['TA0006']
+37379,"{
+   ""Sid"": 23612,
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Adversaries may exploit software vulnerabilities in client applications to execute code. Adversaries may target vulnerabilities in client applications to initially infect systems or further their goals."",
+   ""Explanation"": ""The Snort rule is designed to detect when JavaScript is embedded within an XML template in a PDF file, a common method for exploiting PDF viewer vulnerabilities to execute arbitrary code on the client's machine. This rule matches MITRE ATT&CK technique T1203 because it involves the exploitation of a client-side application (like a PDF viewer) to achieve execution.""
+ }",['T1203'],['TA0005'],['TA0002']
+57462,"{
+   ""Sid"": ""57462"",
+   ""Technique ID"": ""T1505.003"",
+   ""Technique Name"": ""Server Software Component: Web Shell"",
+   ""Quotes"": ""Web shells can be used to leverage remote access and administration."",
+   ""Explanation"": ""This Snort IDS rule triggers on specific content strings indicative of a Perl-based backdoor (STEADYPULSE) associated with web shell activity. Web shells are scripts placed on an already-compromised web server that are designed to execute commands remotely, allowing the attacker to manage the server from afar.""
+ }",['T1505.003'],['TA0011'],['TA0003']
+59259,"{
+   ""Sid"": ""59259"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Establishing a connection using a PHP web shell allows the adversary to run commands directly on a web server, often bypassing security measures."",
+   ""Explanation"": ""The Snort rule detects attempts to use PHP for potential malicious purposes, such as accessing a web shell ('Php.Webshell.Bypass'). The technique involves executing arbitrary commands or scripts commonly used for remote control of a server, indicative of Server Software Component manipulation.""
+ }",['T1505'],['TA0003'],['TA0003']
+38387,"{
+   ""Sid"": ""38387"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Input capture is when a user's input is captured by an adversary for use at a later time"",
+   ""Explanation"": ""The mentioned Snort IDS rule detects a Trojan malware that potentially captures user input or continuous screen activity, as indicated by the name FTPKeyLogger and the reference to saving a screenshot via FTP in the payload. The mapped technique, 'Input Capture', encompasses such behavior.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+38249,"{
+   ""Sid"": ""38249"",
+   ""Technique ID"": ""T1078"",
+   ""Technique Name"": ""Valid Accounts"",
+   ""Quotes"": ""Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion."",
+   ""Explanation"": ""This Snort rule detects attempts to use a default password ('admin:1234' in base64 encoding) for logging into a Samsung Data Manager. This behavior is indicative of an adversary trying to use default credentials to gain access, as highlighted by the MITRE ATT&CK's Valid Accounts technique (T1078). This technique is relevant because it involves exploiting known credentials, potentially to gain initial access to a system or maintain persistence.""
+ }",['T1078'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']","['TA0005', 'TA0001', 'TA0004', 'TA0003']"
+38890,"{
+   ""Sid"": ""38890"",
+   ""Technique ID"": ""T1020"",
+   ""Technique Name"": ""Automated Exfiltration"",
+   ""Quotes"": ""Data exfiltration is performed without user interaction."",
+   ""Explanation"": ""This technique is relevant because the rule detects an attempt to automate the exfiltration of data to a command and control server via a web service, as indicated by the `.php?fname=Hawkeye_Keylogger` in the URI, which is a common method for automated exfiltration.""
+ }",['T1020'],['TA0010'],['TA0010']
+35317,"{
+   ""Sid"": ""35317"",
+   ""Technique ID"": ""T1105"",
+   ""Technique Name"": ""Ingress Tool Transfer"",
+   ""Quotes"": ""Adversaries may transfer tools or other files from an external system into a compromised environment."",
+   ""Explanation"": ""The rule is detecting outbound HTTP connections to a server, indicating an exchange of information that could be receiving updates or commands from a C2 server. The use of specific URI patterns suggests that the malware might be downloading additional components or tools, aligning with the 'Ingress Tool Transfer' technique.""
+ }",['T1105'],['TA0003'],['TA0011']
+26639,"
+ {
+   ""Sid"": ""26639"",
+   ""Technique ID"": ""T1553.002"",
+   ""Technique Name"": ""Subvert Trust Controls: Code Signing"",
+   ""Quotes"": ""Adversaries may install code signing certificates to assist in establishing trust... may abuse code signing to sign malicious code, including malware or files used during an operation such as ZIP files and executables."",
+   ""Explanation"": ""The rule detects activities related to tampering with XML digital signatures in Internet Explorer, which could involve alteration or misuse of code signatures. The technique is chosen because altering digital signatures subverts trust controls typically used to verify the integrity and origin of software or data, which is in line with 'Subvert Trust Controls: Code Signing' where adversaries might tamper with or fake digital signatures.""
+ }
+ ",['T1553.002'],['TA0005'],['TA0005']
+26639,"{
+   ""Sid"": 2230,
+   ""Technique ID"": ""T1078"",
+   ""Technique Name"": ""Valid Accounts"",
+   ""Quotes"": ""\""Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.\"""",
+   ""Explanation"": ""The Snort rule is designed to detect attempts to access a NetGear router using the default username and password credentials (admin/password). This pertains to the MITRE ATT&CK technique 'Valid Accounts', as the rule involves monitoring for unauthorized access attempts using default or weak credentials which could lead to unauthorized control or elevated privileges within a network.""
+ }",['T1078'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']","['TA0005', 'TA0001', 'TA0004', 'TA0003']"
+12134,"{
+   ""Sid"": ""12134"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Keylogging represents a technique under 'Input Capture' that records the keys struck on a keyboard."",
+   ""Explanation"": ""The rule is designed to detect traffic containing the signature of a keylogger (specifically 'remotekeylog.b'), which directly maps to the 'Input Capture' technique. The Snort rule mentions detecting the act of opening a URL by a keylogger, indicating capturing of user's input relating to URL entries typically used by malicious actors to collect credentials or other sensitive information.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+59051,"{
+   ""Sid"": ""59051"",
+   ""Technique ID"": ""T1505.003"",
+   ""Technique Name"": ""Server Software Component: Web Shell"",
+   ""Quotes"": ""Web shells can be used to leverage unauthorized access and can be uploaded using other techniques such as supply chain compromise and valid accounts."",
+   ""Explanation"": ""The Snort rule is designed to detect attempts to upload PHP web shells indicated by the specific PHP code patterns in the HTTP request to a server. The mapped technique, Web Shell, is a script that can be uploaded to a web server to enable remote administration of the machine. Given this rule targets detection of such behavior, it confirms the activity associated with the MITRE technique of a server software component exploit using web shells.""
+ }",['T1505.003'],['TA0003'],['TA0003']
+20618,"{
+   ""Sid"": ""20618"",
+   ""Technique ID"": ""T1212"",
+   ""Technique Name"": ""Exploitation for Credential Access"",
+   ""Quotes"": ""Exploitation of a software vulnerability to steal credentials"",
+   ""Explanation"": ""The rule captures attempts to disclose database credentials through exploiting vulnerabilities in the Sage SalesLogix server. By searching for specific byte patterns that indicate an exploitation attempt, it aligns well with 'Exploitation for Credential Access' where adversaries exploit software vulnerabilities to access credentials.""
+ }",['T1212'],['TA0006'],['TA0006']
+47846,"{
+   ""Sid"": ""47846"",
+   ""Technique ID"": ""T1059.001"",
+   ""Technique Name"": ""Command and Scripting Interpreter: PowerShell"",
+   ""Quotes"": ""The rule detects the use of PowerShell which attackers use to execute scripts or commands to carry out various actions, including but not limited to file manipulation, file transfer, and code execution."",
+   ""Explanation"": ""The Snort rule identifies instances where PowerShell is invoked as part of malicious activity, commonly seen in the context of Command and Scripting Interpreter technique under MITRE ATT&CK. The rule searches for PowerShell command patterns in network traffic, a method attackers use to execute scripts that may be used for malware download, installation, or other unauthorized activities.""
+ }",['T1059.001'],['TA0002'],['TA0002']
+28349,"{
+   ""Sid"": ""28349"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The attacker targets systems with a specific vulnerability that is accessible via public network paths (such as web applications or browser plugins)."",
+   ""Explanation"": ""This Snort rule detects an attempt to exploit a browser plugin vulnerability by accessing a specific CLSID that likely represents an ActiveX component related to the Microsoft Windows WMI administrator tools. The rule is triggered by traffic to clients over HTTP, which is a public-facing service. Thus, it aligns with the technique of exploiting public-facing applications to conduct an attack.""
+ }",['T1190'],['TA0002'],['TA0001']
+6190,"{
+   ""Sid"": ""6190"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Use of keyloggers or user input capture mechanisms to extract user credentials or other sensitive information."",
+   ""Explanation"": ""The rule suggests detection of a keylogger, specifically eBlaster 5.0, which captures user inputs. MITRE's technique 'Input Capture' directly relates to such activity where adversaries might use keyloggers to obtain inputs.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+60451,"{
+   ""Sid"": ""60451"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Compromise software supply chains to deliver malicious content to targets"",
+   ""Explanation"": ""The rule detects attempts to create new directories via HTTP, which can be indicative of webshell deployment on a server, altering server components to set up further attacks or persist within the system.""
+ }",['T1505'],['TA0003'],['TA0003']
+37383,"{
+   ""Sid"": ""37383"",
+   ""Technique ID"": ""T1110"",
+   ""Technique Name"": ""Brute Force"",
+   ""Quotes"": ""Adversaries may attempt to get into accounts with commonly used passwords, sometimes including defaults for specific types of systems."",
+   ""Explanation"": ""The Snort IDS rule identifies an attempt to use default credentials on a web application, typically a sign of a brute force technique where attackers try common usernames and passwords (including defaults) to gain unauthorized access. This MITRE ATT&CK technique specifically references the use of default or commonly used passwords, aligning with the detection purpose of the rule.""
+ }",['T1110'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']",['TA0006']
+17265,"{
+   ""Sid"": ""17265"",
+   ""Technique ID"": ""T1553.002"",
+   ""Technique Name"": ""Subvert Trust Controls: Code Signing"",
+   ""Quotes"": ""Adversaries may modify artifacts to evade defenses intended to detect illegitimate or malicious binaries"",
+   ""Explanation"": ""This rule detects a Mozilla Firefox plugin access control bypass attempt which involves manipulating Firefox settings or files to bypass the normal security controls. The IDS rule identifies modifications to a Firefox file 'initWithPath' and the creation of a unique file that could potentially be designed to initiate unauthorized actions. This aligns with the technique of modifying system artifacts - specifically binary files - to subvert trust controls and evade defense mechanisms.""
+ }",['T1553.002'],['TA0003'],['TA0005']
+41817,"{
+   ""Sid"": ""41817"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may abuse legitimate extensible server components to execute arbitrary commands."",
+   ""Explanation"": ""The rule is detecting generic SQL injection attempts in HTTP URI which adversaries can use to manipulate backend database queries. This relates to the Server Software Component technique as attackers could abuse SQL queries to manipulate server software behavior.""
+ }",['T1505'],['TA0001'],['TA0003']
+30510,"{
+   ""Sid"": ""30510"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The rule detects an attempt to exploit a vulnerability, specifically an 'OpenSSL SSLv3 heartbeat read overrun', typically targeting public-facing applications."",
+   ""Explanation"": ""This Snort rule is designed to detect attempts to exploit a specific vulnerability in OpenSSL SSLv3, which is often used in public-facing applications to secure communications. The rule's focus on a 'heartbeat read overrun' aligns well with the exploitation of public servers and applications, hence mapping to MITRE's Technique ID T1190, which covers the exploitation of public-facing applications.""
+ }",['T1190'],['TA0009'],['TA0001']
+13642,"{
+   ""Sid"": ""13642"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Collects information through capturing user input"",
+   ""Explanation"": ""This rule detects the transmission of data (possibly captured by a keylogger) via SMTP, which typically involves capturing user inputs such as keystrokes or mouse movements. The mention of 'Keylogger' in the message field of the rule strongly aligns with this technique.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+29615,"{
+   ""Sid"": ""29615"",
+   ""Technique ID"": ""T1071"",
+   ""Technique Name"": ""Application Layer Protocol"",
+   ""Quotes"": ""use of application layer protocols to communicate with command and control servers"",
+   ""Explanation"": ""The rule indicates outbound HTTP communication to a server, typical of malware using application layer protocols for command and control. The specific URI in the content field suggests data transfer possibly related to exfiltration or command execution.""
+ }",['T1071'],"['TA0006', 'TA0009']",['TA0011']
+59023,"{
+   ""Sid"": ""59023"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may abuse legitimate extensible development features of servers to establish persistent access to systems."",
+   ""Explanation"": ""The rule detects an outbound connection attempt by a PHP web shell named 'Antichat Shell'. Web shells are a common server software component abuse by adversaries to execute commands remotely, maintain persistent access, and potentially manage C2 capabilities from a compromised web server.""
+ }",['T1505'],['TA0003'],['TA0003']
+45470,"{
+   ""Sid"": ""45470"",
+   ""Technique ID"": ""T1105"",
+   ""Technique Name"": ""Ingress Tool Transfer"",
+   ""Quotes"": ""Adversaries may transfer tools or other files from an external system into a compromised environment ... Files may be copied from an external adversary-controlled system through the command and control channel or through alternate protocols ..."",
+   ""Explanation"": ""The rule detects an attempt to download a specific file, which is indicative of the Ingress Tool Transfer technique. The attempt to download 'sm.txt' could be part of an operation to bring harmful tools or scripts into a target's network environment.""
+ }",['T1105'],['TA0011'],['TA0011']
+58787,"{
+   ""Sid"": ""58787"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The attacker uses an Apache Log4j vulnerability for remote code execution."",
+   ""Explanation"": ""The rule detects attempts to exploit a vulnerability in Apache Log4j, which is indicative of an attack targeting public-facing applications to execute arbitrary code remotely. This aligns with MITRE ATT&CK's definition of Technique T1190.""
+ }",['T1190'],['TA0001'],['TA0001']
+17154,"{
+   ""Sid"": ""17154"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Adversaries may exploit software vulnerabilities in client applications to execute code. Adversaries may target vulnerabilities in various client applications..."",
+   ""Explanation"": ""The rule detects an exploit attempt targeting Mozilla Firefox via a plugin parameter array dangling pointer, which is an attempt to execute arbitrary code on the client machine by exploiting a software vulnerability. This directly aligns with the MITRE ATT&CK technique 'Exploitation for Client Execution' where adversaries target client-side applications.""
+ }",['T1203'],['TA0003'],['TA0002']
+36338,"{
+   ""Sid"": ""36338"",
+   ""Technique ID"": ""T1566"",
+   ""Technique Name"": ""Phishing"",
+   ""Quotes"": ""The rule matches on the content strings indicative of phishing attempts in HTTP responses."",
+   ""Explanation"": ""The rule detects a specific pattern in HTTP responses that is indicative of a phishing attempt (e.g., keywords like 'apass' and an HTML comment designed to look like a marker or a tag used by attackers). This maps directly to MITRE ATT&CK's technique T1566, which details various forms of phishing, including those involving deceptive content delivery over web protocols.""
+ }",['T1566'],['TA0001'],['TA0001']
+32008,"{
+   ""Sid"": ""32008"",
+   ""Technique ID"": ""T1566.002"",
+   ""Technique Name"": ""Phishing: Spearphishing Attachment"",
+   ""Quotes"": ""The rule detects a fake airline ticketing themed phishing attack where an executable file is disguised in an HTTP response, possibly mimicking an email attachment."",
+   ""Explanation"": ""The Snort rule specifically mentions a 'Fake Delta Ticket HTTP Response phishing attack', which involves a deceptive attempt to deliver malware, likely through an email attachment (given the file naming and executable). 'Spearphishing Attachment' under MITRE involves sending emails that contain malicious attachments to specific targets to trick them into executing them, closely aligning with the behavior detected by the Snort rule.""
+ }",['T1566.002'],['TA0001'],['TA0001']
+32008,"{
+   ""Sid"": 5780,
+   ""Technique ID"": ""T1566.003"",
+   ""Technique Name"": ""Phishing: Spearphishing Attachment"",
+   ""Quotes"": ""Adversaries may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems."",
+   ""Explanation"": ""The Snort rule indicates an outbound SMTP connection carrying a suspicious email subject that suggests content manipulation typically associated with malware or keyloggers, possibly sent through a targeted phishing attempt with malicious attachments or links.""
+ }",['T1566.003'],"['TA0006', 'TA0009']",['TA0001']
+32008,"{
+   ""Sid"": 19171,
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Adversaries may exploit software vulnerabilities in client applications to execute code. Examples include the execution of malicious code through an application flaw such as buffer overflow, DLL injection, or other execution of adversary-controlled code as the result of an exploitation attempt."",
+   ""Explanation"": ""The rule is designed to detect attempts to exploit a known vulnerability in Microsoft Internet Explorer 8 involving the 'ieshims.dll' file. The mention of 'dll-load exploit' in the message content of the rule aligns with exploitation techniques where adversaries attempt to execute malicious code through vulnerabilities in client-side applications. This typically involves the execution of code by exploiting flaws like DLL loading mechanisms, matching the description in MITRE's technique T1203.""
+ }",['T1203'],"['TA0005', 'TA0003', 'TA0004']",['TA0002']
+39410,"{
+   ""Sid"": ""39410"",
+   ""Technique ID"": ""T1567"",
+   ""Technique Name"": ""Exfiltration Over Web Service"",
+   ""Quotes"": ""includes exfiltration to web services such as webmail, pasting sites, and other commonly used services, as well as exfiltration over other application layer protocols such as HTTP/HTTPS"",
+   ""Explanation"": ""The rule detects an outbound SMTP connection possibly for data exfiltration, matching the contents indicative of data theft such as usernames and passwords. This aligns with the technique of exfiltrating data over a web service, specifically via mail protocols as described in MITRE's T1567.""
+ }",['T1567'],['TA0010'],['TA0010']
+57797,"{
+   ""Sid"": ""57797"",
+   ""Technique ID"": ""T1027"",
+   ""Technique Name"": ""Obfuscated Files or Information"",
+   ""Quotes"": ""Attackers may obfuscate commands or files to help evade defenses and observation. Obfuscation techniques include the use of steganography, substitution, or encoding"",
+   ""Explanation"": ""The Snort rule triggers on JavaScript obfuscation attempts, such as using 'parseInt' to parse numerical strings - a common technique to evade detection mechanisms by masking the true nature of the script. The rule's focus on detecting obfuscated JavaScript in web traffic aligns well with this MITRE ATT&CK technique.""
+ }",['T1027'],['TA0005'],['TA0005']
+19741,"{
+   ""Sid"": ""19741"",
+   ""Technique ID"": ""T1056.001"",
+   ""Technique Name"": ""Input Capture: Keylogging"",
+   ""Quotes"": ""Keylogging involves recording the keys struck on a keyboard so that the user's activities can be tracked sequentially."",
+   ""Explanation"": ""The rule triggers alerts for runtime detection of 'PWS.Win32.Scofted', a keylogger malware. Keylogging is involved as indicated by the rule description, making the technique 'Input Capture: Keylogging' relevant. The rule references the use of FTP (service:ftp) which is often used for data exfiltration of collected keystrokes.""
+ }",['T1056.001'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+30779,"{
+   ""Sid"": ""30779"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The rule targets traffic typically used by public-facing applications (ports for FTP, SMTP, HTTPS, and others) and detects an exploit attempt (OpenSSL TLSv1 large heartbeat response)."",
+   ""Explanation"": ""This rule is designed to detect and prevent an attempt to exploit the Heartbleed vulnerability, a buffer over-read bug in OpenSSL which allows attackers to read memory of servers running vulnerable versions of OpenSSL. The rule detects exploitation attempts on ports associated with common public-facing services (FTP, SMTP, HTTPS), aligning it with the MITRE ATT&CK technique for exploiting public-facing applications."" 
+ }",['T1190'],['TA0009'],['TA0001']
+34944,"{
+   ""Sid"": ""34944"",
+   ""Technique ID"": ""T1213"",
+   ""Technique Name"": ""Data from Information Repositories"",
+   ""Quotes"": ""Adversaries may leverage information repositories to mine valuable information. Information repositories are sources of data stored as computer-readable content that an adversary may look to in order to extract useful information."",
+   ""Explanation"": ""The rule indicates an attempt to disclose credentials via a management interface of Arcserve Unified Data Protection, which can be considered as accessing an information repository where sensitive data like backup policies and credentials are stored. The contents referenced in the Snort rule ('/services/EdgeServiceImpl' and 'getBackupPolicy') suggest that data is being accessed that might hold sensitive information, aligning with the technique of extracting data from information repositories.""
+ }",['T1213'],['TA0006'],['TA0009']
+50954,"{
+   ""Sid"": ""50954"",
+   ""Technique ID"": ""T1100"",
+   ""Technique Name"": ""Web Shell"",
+   ""Quotes"": ""Web shells provide adversaries with persistent access and remote administration capabilities and can be used as a backdoor."",
+   ""Explanation"": ""The Snort rule is designed to detect a communication attempt related to the PhpSploit backdoor, indicating an attempt to use or deploy a web shell on a server to establish persistent, remote access. The content of the HTTP header specified in the rule is associated with this technique.""
+ }",['T1100'],['TA0003'],['TA0003']
+50467,"{
+   ""Sid"": ""50467"",
+   ""Technique ID"": ""T1003"",
+   ""Technique Name"": ""OS Credential Dumping"",
+   ""Quotes"": ""Mimikatz is a tool that collects credentials such as plain text passwords, password hashes, and Kerberos tickets from memory."",
+   ""Explanation"": ""The Snort rule detects the use of Mimikatz by observing attempts to access files typically associated with Mimikatz operations over SMB, specifically targeting paths containing 'Windows\\Temp\\mimikatz'. Mimikatz is commonly utilized for credential dumping, thus the rule aligns with this MITRE ATT&CK technique.""
+ }",['T1003'],['TA0006'],['TA0006']
+59218,"{
+   ""Sid"": ""59218"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""detect system information and installed software"",
+   ""Explanation"": ""The rule is detecting an outbound connection attempt by a PHP webshell, which often involves commands to probe system details and installed software. The content matches in the rule ('uname -a' and 'Software') suggest an effort to gather such information, similar to behaviors described in Server Software Component, wherein adversaries modify server software to gain persistence or perform actions.""
+ }",['T1505'],['TA0003'],['TA0003']
+52081,"{
+   ""Sid"": ""52081"",
+   ""Technique ID"": ""T1557"",
+   ""Technique Name"": ""Man-in-the-Middle"",
+   ""Quotes"": ""Leverage man-in-the-middle techniques to intercept and modify network communications..."",
+   ""Explanation"": ""The rule description indicates a 'Responder poisoner service negotiation attack attempt', which suggests an attempt to manipulate network communications typically seen in Man-in-the-Middle (MITM) attacks. This technique involves intercepting and potentially altering the communication between two parties who believe they are directly communicating with each other, matching the MITM technique in MITRE ATT&CK.""
+ }",['T1557'],['TA0006'],"['TA0006', 'TA0009']"
+57983,"{
+   ""Sid"": ""57983"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""Exploit Public-Facing Application involves attacking applications that are accessible from the internet, including web servers or web applications."",
+   ""Explanation"": ""The Snort IDS rule identifies a server-side request forgery (SSRF) attempt against a Microsoft Exchange autodiscover service, which is a key component of a publicly accessible application. SSRF attacks are a common method to exploit public-facing applications, which aligns with the MITRE ATT&CK technique T1190.""
+ }",['T1190'],['TA0001'],['TA0001']
+24740,"{
+   ""Sid"": ""24740"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The rule indicates an attempt to exploit a known vulnerability in Oracle Business Transaction Management by utilizing a directory traversal exploit in the flashtunnelservice function."",
+   ""Explanation"": ""This Snort IDS rule detects a directory traversal attack aimed at Oracle Business Transaction Management's flashtunnelservice function, which matches the definition of exploiting public-facing applications. Directory traversal is a common method used by attackers to exploit vulnerabilities in web applications to gain unauthorized access to files and directories.""
+ }",['T1190'],['TA0005'],['TA0001']
+7597,"{
+   ""Sid"": ""7597"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Keyloggers are a form of input capture often used by malicious adversaries to capture sensitive data such as credentials."",
+   ""Explanation"": ""The rule is designed to detect traffic associated with the Lantern Keylogger, which is a type of malware that captures keystrokes (input capture). The technique 'Input Capture' in MITRE ATT&CK directly corresponds to activities that involve capturing user input, which is why this mapping is appropriate.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+41458,"{
+   ""Sid"": ""41458"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Collection methods may involve capturing keystrokes."",
+   ""Explanation"": ""The rule alerts on an outbound connection which is associated with the 'Osx.Keylogger.Elite' variant, indicating that it is likely capturing user inputs, such as keystrokes.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+19392,"{
+   ""Sid"": ""19392"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Adversaries can use methods of capturing user input for obtaining credentials for Valid Accounts and information Collection that include keylogging and user input field interception."",
+   ""Explanation"": ""The Snort rule is designed to detect network traffic indicating the presence of a keylogger, specifically 'Monitor.win32.perflogger', which is a type of malware that logs keystrokes. The MITRE ATT&CK technique 'Input Capture' encompasses methods such as keylogging, which is directly relevant to the behavior this IDS rule aims to identify.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+24517,"{
+   ""Sid"": ""24517"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may deploy malicious software to systems that is designed as server software and implements server software application layer protocols  likely focus on various applications such as databases, application servers, and other infrastructure components."",
+   ""Explanation"": ""The rule targets SQL injection attempts in F5 Networks FirePass software, trying to manipulate web server software component behaviors by exploiting security vulnerabilities. This fits into the 'Server Software Component' as it involves the deployment of software designed to interact with server components at the application layer.""
+ }",['T1505'],['TA0001'],['TA0003']
+31301,"{
+   ""Sid"": ""31301"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Adversaries may exploit software vulnerabilities in client applications to execute code."",
+   ""Explanation"": ""The rule is designed to detect attempts to exploit vulnerabilities in web browsers (specifically Microsoft Internet Explorer) via malicious XSLT data in emails. Since the method involves exploiting software to execute arbitrary code, it correlates with the 'Exploitation for Client Execution' technique, which involves executing code through vulnerabilities in client applications.""
+ }",['T1203'],['TA0005'],['TA0002']
+19172,"{
+   ""Sid"": ""19172"",
+   ""Technique ID"": ""T1210"",
+   ""Technique Name"": ""Exploitation of Remote Services"",
+   ""Quotes"": ""The adversary is trying to exploit software vulnerabilities in an Internet-facing computer or service(such as a web server) to run adversary-controlled code."",
+   ""Explanation"": ""The rule indicates an exploit attempt against Microsoft Internet Explorer, specifically targeting 'ieshims.dll' through a buffer exploit. This typically involves sending specially crafted packets to vulnerable services exposed to the internet, aligning with MITRE's definition of exploiting remote services.""
+ }",['T1210'],"['TA0005', 'TA0003', 'TA0004']",['TA0008']
+58744,"{
+   ""Sid"": ""58744"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""Exploit Public-Facing Application technique includes the exploitation of a vulnerability in an Internet-facing computer or program to gain unauthorized access."",
+   ""Explanation"": ""The Snort rule is designed to detect attempts to exploit a known vulnerability in Apache Log4j, which is a common component in many server applications. The presence of this rule indicates that it is meant to catch attackers trying to execute remote code through exploitation of this vulnerability, which aligns with exploiting a weakness in a public-facing application as described in MITRE ATT&CK's T1190 technique.""
+ }",['T1190'],['TA0001'],['TA0001']
+16125,"{
+   ""Sid"": ""16125"",
+   ""Technique ID"": ""T1552"",
+   ""Technique Name"": ""Unsecured Credentials"",
+   ""Quotes"": ""Adversaries may search for insecurely stored credentials in compromised environments."",
+   ""Explanation"": ""The rule is designed to detect the retrieval of a file ('k3ylogger.txt') via FTP, which is indicative of an operation to either store or retrieve harvested credentials by a keylogger. The rule pointing to credential access (possibly insecure storage or transfer using an FTP service) aligns with the T1552 technique.""
+ }",['T1552'],"['TA0006', 'TA0009']",['TA0006']
+59092,"{
+   ""Sid"": ""59092"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""The technique involves deploying or using malicious web shells onto targets for maintaining persistent access and facilitating network exploitation."",
+   ""Explanation"": ""The rule detects an attempt to download a PHP web shell, indicated by specific PHP code ('function deltree($deldir)'). Web shells are a type of server software component that attackers deploy on servers to provide persistent access and control, often facilitating further network exploitation.""
+ }",['T1505'],['TA0003'],['TA0003']
+59092,"{
+   ""Sid"": 1122,
+   ""Technique ID"": ""T1087"",
+   ""Technique Name"": ""Account Discovery"",
+   ""Quotes"": ""Adversaries may attempt to get a listing of local system or domain accounts."",
+   ""Explanation"": ""The specified Snort rule detects attempts to access the '/etc/passwd' file over HTTP, which is a common method used by adversaries to discover account information on Unix-like systems. Accessing this file can help the attacker enumerate user accounts, and is therefore mapped to the MITRE ATT&CK technique for Account Discovery, designated as T1087.""
+ }",['T1087'],['TA0007'],['TA0007']
+42836,"{
+   ""Sid"": ""42836"",
+   ""Technique ID"": ""T1505.003"",
+   ""Technique Name"": ""Server Software Component: Web Shell"",
+   ""Quotes"": ""Adversaries may backdoor web servers with web shells to establish persistent access to systems."",
+   ""Explanation"": ""The Snort rule description mentions 'Win.Backdoor.Chopper web shell connection,' indicating detection of traffic typically associated with a web shell. Web shells are scripts placed on a web server to enable remote administration. Once uploaded, the web shell script executes arbitrary commands sent to it. In this case, the rule is designed to detect activity related to the Chopper web shell, a known malicious software. The MITRE ATT&CK technique 'Server Software Component: Web Shell' corresponds to the activity this Snort rule aims to detect.""
+ }",['T1505.003'],['TA0011'],['TA0003']
+2547,"{
+   ""Sid"": ""2547"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The adversary is trying to exploit a public-facing application to execute code of their choosing on a remote system. The exploit could be conducted by uploading a malicious file to the system."",
+   ""Explanation"": ""The Snort rule detects an attempt to upload a file through HP Web JetAdmin, a known web application. This behavior is similar to exploiting vulnerabilities in web applications to upload arbitrary files, which could be used to execute code remotely. This aligns with the MITRE ATT&CK definition of 'Exploit Public-Facing Application.'""
+ }",['T1190'],['TA0001'],['TA0001']
+22061,"
+ {
+   ""Sid"": ""22061"",
+   ""Technique ID"": ""T1102"",
+   ""Technique Name"": ""Web Service"",
+   ""Quotes"": ""\""Commonly used web services include Twitter, Pastebin, and GitHub for hosting malware configuration or payload delivery.\"""",
+   ""Explanation"": ""This mapping is accurate as the rule identifies an IFRAME load attempt potentially for delivering a malicious payload or script, which may leverage commonly used web services (like Twitter as mentioned in the content of the rule) for hosting or communication with the C&C (command and control server). This behavior fits the characteristics described in the technique 'Web Service' under the MITRE ATT&CK framework.""
+ }
+ ",['T1102'],['TA0011'],['TA0011']
+48501,"{
+   ""Sid"": ""48501"",
+   ""Technique ID"": ""T1105"",
+   ""Technique Name"": ""Ingress Tool Transfer"",
+   ""Quotes"": ""Adversaries may transfer tools or other files from an external system into a compromised environment."",
+   ""Explanation"": ""The Snort rule is designed to detect downloads of a specific malware variant, indicating the transfer of malicious tools or files into the target network. This closely aligns with MITRE's description of 'Ingress Tool Transfer' where adversaries introduce tools to a compromised environment.""
+ }",['T1105'],['TA0005'],['TA0011']
+42857,"{
+   ""Sid"": ""42857"",
+   ""Technique ID"": ""T1068"",
+   ""Technique Name"": ""Exploitation for Privilege Escalation"",
+   ""Quotes"": ""The adversary is trying to exploit software vulnerabilities to escalate privileges or bypass security checks."",
+   ""Explanation"": ""The given Snort IDS rule detects attempts to execute arbitrary commands on a MVPower DVR through HTTP requests, which could potentially allow an attacker to escalate privileges or bypass security mechanisms if they successfully exploit these vulnerabilities.""
+ }",['T1068'],['TA0002'],['TA0004']
+58732,"{
+   ""Sid"": ""58732"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""Adversaries may attempt to exploit a weakness in an Internet-facing computer or program using software, data, or commands in order to cause unintended or unanticipated behavior."",
+   ""Explanation"": ""The Snort IDS rule is designed to detect remote code execution attempts against a public-facing application, specifically Apache Log4j. The match pattern within the rule indicates it is looking for attempts to exploit a vulnerability, likely via crafted HTTP requests containing malicious payloads that target Log4j's logging capability. This correlates with the MITRE ATT&CK technique of exploiting public-facing applications to gain unauthorized access or execute arbitrary code on vulnerable systems.""
+ }",['T1190'],['TA0001'],['TA0001']
+32771,"{
+   ""Sid"": ""32771"",
+   ""Technique ID"": ""T1566.001"",
+   ""Technique Name"": ""Phishing: Spearphishing Attachment"",
+   ""Quotes"": ""Users are enticed to open email attachments focused on communicating automated document improvement capabilities that could support adversaries in Phishing processes."",
+   ""Explanation"": ""The Snort rule describes detecting malware associated with a spearphishing attempt involving an attachment (adb-invoice.zip) aiming to be delivered via SMTP, which directly aligns with this MITRE technique involving deception through email attachments to execute a phishing attack.""
+ }",['T1566.001'],['TA0001'],['TA0001']
+32804,"{
+   ""Sid"": ""32804"",
+   ""Technique ID"": ""T1059.007"",
+   ""Technique Name"": ""JavaScript"",
+   ""Quotes"": ""\""The Scripting technique covers the execution of arbitrary scripting languages such as Python, PowerShell, and JavaScript.\"""",
+   ""Explanation"": ""The rule detects the use of obfuscated JavaScript in HTTP traffic, which corresponds with the MITRE ATT&CK technique related to JavaScript usage in scripting for malicious purposes. JavaScript is often used and obfuscated in exploit kits to evade detection while executing on client machines.""
+ }",['T1059.007'],['TA0005'],['TA0002']
+48508,"{
+   ""Sid"": ""48508"",
+   ""Technique ID"": ""T1071"",
+   ""Technique Name"": ""Application Layer Protocol"",
+   ""Quotes"": ""Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic."",
+   ""Explanation"": ""The specified Snort rule detects an outbound connection to an HTTP server, which is typically used for common communication. The use of the HTTP protocol for command and control (C2) fits under the use of application layer protocols for malicious purposes, a behavior detailed in MITRE's T1071 technique.""
+ }",['T1071'],['TA0003'],['TA0011']
+60297,"{
+   ""Sid"": ""60297"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Attackers can install, modify, or create malicious server software components such as web shells within software applications."",
+   ""Explanation"": ""The Snort rule detects web shell activity, specifically a cyber shell based on PHP. This maps to the MITRE ATT&CK technique 'Server Software Component' as the rule involves detecting malicious modifications to server components (like web shells) which are tools frequently used by attackers to maintain persistent access to an exploited system.""
+ }",['T1505'],['TA0003'],['TA0003']
+60297,"{
+   ""Sid"": 31564,
+   ""Technique ID"": ""T1048"",
+   ""Technique Name"": ""Exfiltration Over Alternative Protocol"",
+   ""Quotes"": ""Adversaries may exfiltrate data over a different protocol than the command and control channel."",
+   ""Explanation"": ""The Snort rule is designed to detect FTP traffic that may be used for data exfiltration by the malware Win.Trojan.CosmicDuke, specifically spotting a pattern of FTP STOR command followed by a suspicious file name related to exfiltration ('.bin'). The rule captures the use of FTP, an alternative protocol, for data movement which is commonly not intended for such purpose in controlled environments.""
+ }",['T1048'],['TA0010'],['TA0010']
+58789,"{
+   ""Sid"": ""58789"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The rule attempts to detect exploitation of a vulnerability within Apache Log4j, a public-facing application, indicating an attempt to execute remote code."",
+   ""Explanation"": ""The Snort rule is designed to identify patterns in HTTP client body data that suggest an attempt to exploit a specific vulnerability in the Apache Log4j library. Given that Apache Log4j is often used in applications exposed to the internet, this rule aligns with attempts to exploit public-facing applications to execute unauthorized code. The inclusion of a specific pattern match aimed at identifying exploit attempts (e.g., remote code execution) directly corresponds to T1190.""
+ }",['T1190'],['TA0001'],['TA0001']
+37378,"{
+   ""Sid"": ""37378"",
+   ""Technique ID"": ""T1078"",
+   ""Technique Name"": ""Valid Accounts"",
+   ""Quotes"": ""Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion."",
+   ""Explanation"": ""The Snort rule is designed to detect attempts to log in using default credentials on an ABB application server by analyzing HTTP headers for specific authorization details. This relates to the 'Valid Accounts' technique as it involves leveraging default or guessable passwords, indicative of an initial access or persistence mechanism through the abuse of valid login credentials.""
+ }",['T1078'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']","['TA0005', 'TA0001', 'TA0004', 'TA0003']"
+40331,"{
+   ""Sid"": ""40331"",
+   ""Technique ID"": ""T1078"",
+   ""Technique Name"": ""Valid Accounts"",
+   ""Quotes"": ""Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion."",
+   ""Explanation"": ""This Snort rule detects attempts to log in using default credentials to a JBoss server environment, which aligns with the MITRE ATT&CK technique T1078, Valid Accounts. The content string searches for a specific HTTP authorization header indicating use of a common default username and password. This is a typical example of an attack where adversaries might leverage default credentials to gain access to systems, in line with the Valid Accounts technique targeting administrator rights through default user accounts.""
+ }",['T1078'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']","['TA0005', 'TA0001', 'TA0004', 'TA0003']"
+44563,"{
+   ""Sid"": ""44563"",
+   ""Technique ID"": ""T1071.001"",
+   ""Technique Name"": ""Application Layer Protocol: Web Protocols"",
+   ""Quotes"": ""Adversaries may communicate over a commonly used port to bypass firewalls or network detection systems and to blend with normal network activity to avoid more detailed inspection."",
+   ""Explanation"": ""The rule explicitly mentions the use of HTTP protocols, indicating the use of web protocols to establish outbound connections, typical of command and control behavior. This matches with the MITRE ATT&CK definition which describes adversaries leveraging web protocols to communicate.""
+ }",['T1071.001'],['TA0002'],['TA0011']
+30521,"{
+   ""Sid"": ""30521"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""Exploiting public-facing applications by submitting crafted requests to the server."",
+   ""Explanation"": ""The Snort rule detects attempts of exploitation such as buffer overflows or other vulnerabilities in OpenSSL's implementation of the TLS protocol used by many public-facing applications. This is indicative of attempts to exploit server vulnerabilities typically exposed by these applications, matching the definition of Technique T1190.""
+ }",['T1190'],['TA0009'],['TA0001']
+19079,"{
+   ""Sid"": ""19079"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""adversaries may exploit software vulnerabilities in client applications to execute code."",
+   ""Explanation"": ""The rule description suggests exploitation of a vulnerability in Microsoft Internet Explorer (getElementById object corruption). The MITRE ATT&CK technique 'Exploitation for Client Execution' directly relates to exploiting client software vulnerabilities to execute code, as indicated by the rule's focus on code corruption and manipulation within a browser context.""
+ }",['T1203'],['TA0003'],['TA0002']
+19079,"{
+   ""Sid"": 58723,
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The attack surface of a software environment includes any exposed and reachable attack vectors. Examples of vulnerabilities include misconfigurations in software, vulnerable software versions with unpatched exploits, insecure default installations, etc."",
+   ""Explanation"": ""The rule is designed to detect a remote code execution attempt in Apache Log4j through an HTTP request, which typically targets public-facing applications. The content match for '${jndi:' signifies an attempt to exploit the Log4j vulnerability, commonly found in outward-facing applications, making this MITRE technique the most applicable.""
+ }",['T1190'],['TA0001'],['TA0001']
+40493,"{
+   ""Sid"": ""40493"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may modify server software components to establish persistent access to a victim network."",
+   ""Explanation"": ""The rule detects an attempt to inject XSL code via the ServerControlWS.asmx service in the Ektron application, indicating a possible modification or injection exploitation in server software components.""
+ }",['T1505'],['TA0005'],['TA0003']
+59926,"{
+   ""Sid"": ""59926"",
+   ""Technique ID"": ""T1059.006"",
+   ""Technique Name"": ""Command and Scripting Interpreter: Python"",
+   ""Quotes"": ""Adversaries may abuse various command and scripting interpreters to execute arbitrary commands, scripts, or binaries. One of the scripting languages that adversaries may abuse is Python."",
+   ""Explanation"": ""The Snort rule is an indicator for a Python remote shell spawn attempt, typically reflective of adversarial tactics to execute arbitrary Python scripts for gaining a remote shell. The alert details specifically include a Python function (pty.spawn) designed to start a shell, which aligns with tactics where Python is used as a scripting interpreter to execute commands.""
+ }",['T1059.006'],['TA0002'],['TA0002']
+60283,"{
+   ""Sid"": ""60283"",
+   ""Technique ID"": ""T1505.003"",
+   ""Technique Name"": ""Server Software Component: Web Shell"",
+   ""Quotes"": ""Adversaries may backdoor web servers with web shells to establish persistent access to systems."",
+   ""Explanation"": ""The Snort rule detects an inbound connection attempt to a web server indicative of a web shell being used  specifically, looking for a PHP web shell named CrewShell. The use of '.php?' and '&defined_vars' in the URI are clear indicators of web shell activity, which directly maps to the MITRE ATT&CK technique for Server Software Component: Web Shell. This technique categorizes the use of web shells by adversaries to maintain persistent access and control over web servers.""
+ }",['T1505.003'],['TA0003'],['TA0003']
+18932,"{
+   ""Sid"": ""18932"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may execute their own malicious payloads by interacting with server software components..."",
+   ""Explanation"": ""This rule detects unauthorized attempts to add applications to a JBoss server using its default configuration, possibly indicating an attempt to leverage JBoss's server components to execute malicious payloads or code. This relates to MITRE's technique T1505, which involves the interaction with or manipulation of server software components to execute code.""
+ }",['T1505'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']",['TA0003']
+6207,"{
+   ""Sid"": ""6207"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Adversaries can use methods of capturing user input for obtaining credentials for Valid Accounts and information Collection such as keylogging."",
+   ""Explanation"": ""The rule is designed to detect keylogger activity via SMTP, which generally involves capturing keystrokes to collect sensitive information.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+37389,"{
+   ""Sid"": ""37389"",
+   ""Technique ID"": ""T1078"",
+   ""Technique Name"": ""Valid Accounts"",
+   ""Quotes"": ""Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion."",
+   ""Explanation"": ""This Snort IDS rule detects attempts to log in using default or well-known credentials, a common method used by adversaries leveraging valid accounts for unauthorized access. The rule specifically targets login attempts with default credentials, pointing to the usage of legitimate access techniques for malicious purposes.""
+ }",['T1078'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']","['TA0005', 'TA0001', 'TA0004', 'TA0003']"
+50095,"{
+   ""Sid"": ""50095"",
+   ""Technique ID"": ""T1553.004"",
+   ""Technique Name"": ""Subvert Trust Controls: Compromise Software Dependencies and Development Tools"",
+   ""Quotes"": ""The adversary could compromise software dependencies and development tools either directly, or by upstream attacks in the supply chain, potentially including the use of a malicious certificate to spoof server identity."",
+   ""Explanation"": ""The Snort rule detects an attempt involving a self-signed certificate during a server communication handshake phase (ssl_state:server_hello). The use of self-signed certificates can be indicative of an attempt to subvert trust controls by simulating a legitimate entity, a key tactic often observed in the compromise of software dependencies or manipulation of development tools.""
+ }",['T1553.004'],['TA0006'],['TA0005']
+56616,"{
+   ""Sid"": ""56616"",
+   ""Technique ID"": ""T1071.001"",
+   ""Technique Name"": ""Application Layer Protocol: Web Protocols"",
+   ""Quotes"": ""The rule detects HTTP requests indication outbound connection attempts, which are typical in cases where Cobalt Strike beacons or similar malware tools communicate over web protocols."",
+   ""Explanation"": ""The rule specifically mentions HTTP ports, and the patterns within the rule are indicative of HTTP requests. Furthermore, the intent of detecting 'Cobalt Strike beacon outbound connection attempt' is strongly connected to data exfiltration or command and control activities typically conducted over common web protocols, aligning well with this sub-technique.""
+ }",['T1071.001'],['TA0011'],['TA0011']
+56616,"{
+   ""Sid"": 13768,
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Collection methods may involve capturing input via peripheral devices such a Keylogging."",
+   ""Explanation"": ""The rule specifically mentions 'Keylogger cyber sitter runtime detection,' which involves capturing key strokes from a user's device. This is a direct implementation of the Input Capture technique, where malicious software records the inputs keyed into a device. The rule is designed to identify network traffic indicating the operation of such keylogging functionality, particularly targeting 'CYBERsitter' software, typically through SMTP traffic.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+44564,"
+ {
+   ""Sid"": ""44564"",
+   ""Technique ID"": ""T1071.001"",
+   ""Technique Name"": ""Application Layer Protocol: Web Protocols"",
+   ""Quotes"": ""Command and Control over Web Protocols involves sending and receiving communication over the HTTP protocol."",
+   ""Explanation"": ""The Snort rule detects outbound HTTP traffic commonly used by malware for command and control communication. The specific rule configurations, such as the HTTP cookie and user-agent strings, are indicative of data retrieval mechanisms consistent with command and control activity over HTTP, matching MITRE's description of the use of web protocols for C2.""
+ }
+ ",['T1071.001'],['TA0002'],['TA0011']
+42834,"{
+   ""Sid"": ""42834"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Server software components that can be abused include web application frameworks, webservers, databases, and other dynamically loadable modules"",
+   ""Explanation"": ""The rule detects a 'Win.Backdoor.Chopper' which typically relates to web shells installed on servers. The mention of web shells aligns with the Server Software Component technique where adversaries abuse server software components to execute arbitrary code, which is typical behavior of a web shell.""
+ }",['T1505'],['TA0003'],['TA0003']
+49455,"{
+   ""Sid"": ""49455"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may implant code on the server to make the server function under a different process that it was meant to, such as uploading a web shell."",
+   ""Explanation"": ""The Snort rule detects an attempt to upload a Perl webshell which is a type of malicious server software component. By trying to embed a Perl interpreter call within a GIF image (indicated by the specific content match in the rule), the attacker is attempting to execute unauthorized commands on the server.""
+ }",['T1505'],['TA0001'],['TA0003']
+42834,"{
+   ""Sid"": ""42834"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may backdoor web servers with web shells to establish persistent access to systems."",
+   ""Explanation"": ""The Snort rule detects web shell activity associated with the Win.Backdoor.Chopper, indicating efforts to maintain persistent access to a web server by manipulating server software components. The use of 'X-Forwarded-For' and base64-encoded payloads in HTTP headers for server-side execution ('@eval') aligns with the characterizations of malicious server software manipulations.""
+ }",['T1505'],['TA0006'],['TA0003']
+26774,"{
+   ""Sid"": ""26774"",
+   ""Technique ID"": ""T1196"",
+   ""Technique Name"": ""SIP and Trust Provider Hijacking"",
+   ""Quotes"": """",
+   ""Explanation"": ""The technique ID T1196 has been explicitly mentioned in the Snort rule. This technique involves the manipulation of SIP (System Integrity Protection) or the trust provider mechanisms in a system, which could facilitate a trojan or malicious software to operate or communicate without detection. The rule description mentioning a 'Win.Worm.Luder variant outbound connection' is indicative of such malware activities, which aligns with the hijacking of system processes or providers as described in T1196.""
+ }",['T1196'],['TA0011'],['TA0005']
+49450,"{
+   ""Sid"": ""49450"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Compromise of servers may aid adversaries in carrying out network sniffing..."",
+   ""Explanation"": ""The rule detects a webshell upload attempt, a method commonly associated with the modification or installation of server software components. By uploading a webshell, an attacker can manipulate the server's functions, typically for command execution or data manipulation.""
+ }",['T1505'],['TA0005'],['TA0003']
+14074,"{
+   ""Sid"": ""14074"",
+   ""Technique ID"": ""T1566"",
+   ""Technique Name"": ""Phishing"",
+   ""Quotes"": ""T1566.002: Spearphishing Attachment - The adversary may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems."",
+   ""Explanation"": ""The Snort rule detects attempts to send emails containing a logged file from a keylogger, specifically using SMTP which is commonly abused in phishing attacks for data exfiltration. The content match for 'SpyBoss Pro - Log File Mailing' and 'X-Mailer: SpyBoss Pro' suggests a targeted attempt to exfiltrate data via email, which aligns with the phishing technique where attackers might use such data for further exploitation.""
+ }","['T1566', 'T1566.002']",['TA0001'],['TA0001']
+56615,"{
+   ""Sid"": ""56615"",
+   ""Technique ID"": ""T1105"",
+   ""Technique Name"": ""Ingress Tool Transfer"",
+   ""Quotes"": ""Adversaries may transfer tools or other files from an external system into a compromised environment."",
+   ""Explanation"": ""The Snort rule is designed to detect a Cobalt Strike beacon outbound connection, which is typically used for command and control communication in a compromised network. This often involves transferring malicious tools or files across the network, aligning with the 'Ingress Tool Transfer' technique where adversaries transfer tools or files to leverage within the environment.""
+ }",['T1105'],"['TA0006', 'TA0009']",['TA0011']
+36602,"{
+   ""Sid"": ""36602"",
+   ""Technique ID"": ""T1071.001"",
+   ""Technique Name"": ""Application Layer Protocol: Web Protocols"",
+   ""Quotes"": ""RETR command in FTP"",
+   ""Explanation"": ""The use of the RETR command in FTP suggests the abuse of the application layer protocol by the trojan to communicate with a command and control server, often to retrieve malicious files or commands.""
+ }",['T1071.001'],['TA0011'],['TA0011']
+36602,"{
+   ""Sid"": 6385,
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Input capture is consistent with keylogging behaviors, where adversaries capture user input to obtain credentials, command entries, and more."",
+   ""Explanation"": ""The Snort rule detects network traffic patterns related to a keylogger named 'stealthwatcher 2000'. Keyloggers are used to covertly record keystrokes from users, which aligns directly with the MITRE ATT&CK technique 'Input Capture', specifically under the sub-technique 'Keylogging'. The detection of keylogger status monitoring supports the mapping of this technique, as it involves monitoring the inputs captured.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+16573,"{
+   ""Sid"": ""16573"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Adversaries may also make use of ActiveX controls to execute arbitrary code."",
+   ""Explanation"": ""The rule detects obfuscated ActiveX object instantiation via unescape, typically a method used to evade detection while exploiting a browser. This is closely related to exploitation techniques that allow adversaries to execute code on the client's machine, as suggested in the MITRE ATT&CK description for 'Exploitation for Client Execution'.""
+ }",['T1203'],"['TA0006', 'TA0009']",['TA0002']
+16455,"{
+   ""Sid"": ""16455"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Adversaries can use methods of capturing user input for obtaining credentials for Valid Accounts and information Collection that include keylogging and user input field interception."",
+   ""Explanation"": ""The Snort IDS rule suggests it detects a keylogger, specifically the 'EgySpy keylogger'. Keyloggers fall under the 'Input Capture' technique where malicious software records the inputs keyed in by a user. This is typically used for collecting sensitive information like passwords.""
+ }",['T1056'],['TA0005'],"['TA0006', 'TA0009']"
+59929,"{
+   ""Sid"": ""59929"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may backdoor server software components"",
+   ""Explanation"": ""The rule is designed to detect a specific JSP webshell, which is effectively a backdoor often injected into server components to provide remote access to a compromised server. The keyword 'Jsp.Webshell.Behinder' in the rule indicates it targets server-side technologies where such tampering would occur.""
+ }",['T1505'],"['TA0006', 'TA0009']",['TA0003']
+57908,"{
+   ""Sid"": ""57908"",
+   ""Technique ID"": ""T1192"",
+   ""Technique Name"": ""Spearphishing Link"",
+   ""Quotes"": ""Adversaries may send spearphishing emails with a malicious link in an attempt to gain access to victim systems."",
+   ""Explanation"": ""The Snort rule indicates an attempt to exploit Microsoft Exchange via an autodiscover server-side request forgery, potentially initiated by a spearphishing campaign targeting specific individuals or organizations. Spearphishing often uses such mechanisms to manipulate server responses and facilitate unauthorized access.""
+ }",['T1192'],['TA0011'],['TA0001']
+19706,"{
+   ""Sid"": ""19706"",
+   ""Technique ID"": ""T1071"",
+   ""Technique Name"": ""Application Layer Protocol"",
+   ""Quotes"": ""Standard application layer protocols such as HTTP, HTTPS, SMTP, or DNS are used by adversaries to communicate command and control servers to download, upload, or execute files."",
+   ""Explanation"": ""The Snort rule describes a scenario where a trojan communicates using the HTTP protocol to potentially a command and control server, as indicated by the triggering of '/com_plugin.php' in HTTP requests. This behavior aligns with the usage of common application layer protocols (HTTP in this instance) for command and control activities.""
+ }",['T1071'],['TA0001'],['TA0011']
+30514,"
+ {
+   ""Sid"": ""30514"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The adversary is trying to exploit a vulnerability in public-facing applications."",
+   ""Explanation"": ""The Snort rule indicates an attempt to exploit OpenSSL's SSLv3 large heartbeat response vulnerability, commonly known as Heartbleed, which is often found in public-facing applications that use SSL/TLS for secure communications. This mapping is relevant because the attack targets vulnerabilities in publicly accessible services to gain unauthorized access or leak information.""
+ }
+ ",['T1190'],['TA0003'],['TA0001']
+49449,"{
+   ""Sid"": ""49449"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may backdoor web servers with web shells to establish persistent access to systems."",
+   ""Explanation"": ""The Snort rule is designed to detect the upload of an ASP web shell, which can be considered a form of server software component manipulation. The content matching portions of the rule detect typical markers of a web shell script embedded within what appears to be a harmless image file (GIF), indicating an attempt to disguise the malicious upload. This aligns with the T1505 technique, where adversaries manipulate server software components to maintain access and control over a server.""
+ }",['T1505'],['TA0009'],['TA0003']
+37387,"{
+   ""Sid"": ""37387"",
+   ""Technique ID"": ""T1078"",
+   ""Technique Name"": ""Valid Accounts"",
+   ""Quotes"": ""Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion."",
+   ""Explanation"": ""This Snort rule is designed to detect attempts to log into a web application using a default Moxa device credential ('admin:root'), encoded in Base64. This behavior matches the Valid Accounts technique where adversaries use known credentials to gain access. The rule specifically triggers on HTTP traffic containing an 'Authorization' header with the encoded credentials, which is consistent with exploiting web-based interfaces using default or guessed credentials.""
+ }",['T1078'],['TA0001'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']"
+4917,"{
+   ""Sid"": ""4917"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""technique often involves taking advantage of vulnerabilities in software to execute adversary-controlled code. Common targets for exploitation include vulnerability in browsers and browser plug-ins."",
+   ""Explanation"": ""The Snort rule describes an attempt to exploit a vulnerability in Microsoft Internet Explorer using obfuscated JavaScript, specifically targeting browser engine via overflow with malicious onload and prompt functions. This directly relates to the Exploitation for Client Execution technique, where adversaries exploit software vulnerabilities to execute arbitrary code.""
+ }",['T1203'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']",['TA0002']
+4917,"{
+   ""Sid"": 60337,
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may implant malicious code into server software components as part of an application layer defense evasion."",
+   ""Explanation"": ""The Snort rule detects attempted connections likely involving a PHP web shell, which suggests manipulation or implantation of server-side scripting to execute arbitrary commands, typically tucked into ostensibly normal web processes. This aligns with the MITRE technique on compromising server software components to help adversaries evade perimeter defenses.""
+ }",['T1505'],['TA0005'],['TA0003']
+27967,"{
+   ""Sid"": ""27967"",
+   ""Technique ID"": ""T1505.003"",
+   ""Technique Name"": ""Server Software Component: Web Shell"",
+   ""Quotes"": ""\""Detects attempts to connect to a web shell on a compromised server.\"""",
+   ""Explanation"": ""The rule identifies traffic patterns to a known malicious web shell, specifically targeting the 'Chopper' web shell as noted in the message content. The use of HTTP headers and specific pattern matching within the HTTP client body suggests the monitoring for command and control (C2) activities typical of a web shell interaction, where commands such as 'Write', 'Execute', and 'Response' are indications of remote command execution capabilities provided by web shells like Chopper.""
+ }",['T1505.003'],['TA0003'],['TA0003']
+57541,"{
+   ""Sid"": ""57541"",
+   ""Technique ID"": ""T1105"",
+   ""Technique Name"": ""Ingress Tool Transfer"",
+   ""Quotes"": ""\""Adversaries may transfer tools or other files from an external system into a compromised environment\"""",
+   ""Explanation"": ""This rule detects an inbound connection potentially involving a Perl based backdoor which may be downloading or transferring malicious tools or files to the compromised system. This aligns with the 'Ingress Tool Transfer' technique, where adversaries transfer tools or files to a target environment.""
+ }",['T1105'],['TA0011'],['TA0011']
+52620,"
+ {
+   ""Sid"": ""52620"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The adversary is trying to exploit a weakness in an Internet-facing computer or program to gain access."",
+   ""Explanation"": ""The rule is designed to detect attempts to execute arbitrary code on a Citrix ADC and Gateway, which are public-facing applications. The attack is identified by specific patterns in the HTTP URI and header, which matches the technique of exploiting public-facing applications to execute code or command.""
+ }
+ ",['T1190'],['TA0011'],['TA0001']
+41444,"{
+   ""Sid"": ""41444"",
+   ""Technique ID"": ""T1105"",
+   ""Technique Name"": ""Ingress Tool Transfer"",
+   ""Quotes"": ""The contents of typical components of a tool that are being transferred, such as specific file markers, URLs, or other unique indicators"",
+   ""Explanation"": ""The rule identifies an outbound connection to a malicious server, likely for downloading additional components such as a keylogger as indicated by the setting 'Win.Ransomware.X-Mas variant keylogger'. This kind of behavior is typical of Ingress Tool Transfer where attackers transfer tools or files from an external source to a compromised host.""
+ }",['T1105'],['TA0001'],['TA0011']
+59048,"{
+   ""Sid"": ""59048"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may modify server software to establish persistence or create a backdoor. The modification could be malicious web shells that are uploaded to a server and incorporated into web pages... Web shells can be used to leverage other techniques such as compiling and execution of delivered payloads..."",
+   ""Explanation"": ""The Snort IDS rule detects an outbound connection attempt indicative of a PHP webshell. Webshells are a common server software component modification used by attackers to maintain persistence on a server, execute commands remotely, and move laterally within a network. The rule specifically mentions detecting script elements in HTTP responses associated with outbound connections, which aligns with the technique of modifying server software to incorporate malicious components like webshells.""
+ }",['T1505'],"['TA0006', 'TA0009']",['TA0003']
+8467,"
+ [
+     {
+         ""Sid"": ""8467"",
+         ""Technique ID"": ""T1056"",
+         ""Technique Name"": ""Input Capture"",
+         ""Quotes"": ""Capture of user input data such as keystrokes or screen snapshots."",
+         ""Explanation"": ""The Snort IDS rule is designed to detect the presence of a keylogger, specifically 'NETObserve'. Keyloggers fall under the 'Input Capture' technique, as they involve capturing user interactions with systems.""
+     }
+ ]
+ ",['T1056'],['TA0003'],"['TA0006', 'TA0009']"
+39755,"{
+   ""Sid"": ""39755"",
+   ""Technique ID"": ""T1059"",
+   ""Technique Name"": ""Command and Scripting Interpreter"",
+   ""Quotes"": ""\""Use of 'powershell' seen in the IDS rule indicates usage of scripting languages for execution\"""",
+   ""Explanation"": ""The Snort IDS rule mentions the use of 'powershell', which suggests that a scripting language is being used for executing arbitrary commands. This maps to the MITRE ATT&CK technique T1059 that encompasses the execution of code through command-line interpreters, including PowerShell, often used by adversaries to execute scripts.""
+ }",['T1059'],"['TA0006', 'TA0009']",['TA0002']
+4060,"{
+   ""Sid"": ""4060"",
+   ""Technique ID"": ""T1021.001"",
+   ""Technique Name"": ""Remote Services: Remote Desktop Protocol"",
+   ""Quotes"": ""Adversaries may use Remote Services such as Remote Desktop Protocol (RDP), Secure Shell (SSH), and Virtual Network Computing (VNC) to access and control systems across a network."",
+   ""Explanation"": ""The Snort rule detects attempts to connect as an administrator using the Remote Desktop Protocol (RDP) by specifically looking for elements in the payload that indicate an RDP connection establishment with administrator credentials ('mstshash=Administr'). This relates to the MITRE ATT&CK's technique of using remote services, specifically RDP, for gaining access and exerting control over remote systems.""
+ }",['T1021.001'],['TA0002'],['TA0008']
+47900,"{
+   ""Sid"": ""47900"",
+   ""Technique ID"": ""T1071.001"",
+   ""Technique Name"": ""Application Layer Protocol: Web Protocols"",
+   ""Quotes"": ""Adversaries may communicate using application layer protocols to avoid detection/network filtering by blending in with existing traffic. Commands to the implant can be embedded in HTTP headers, cookies, or other HTTP locations."",
+   ""Explanation"": ""The Snort rule detects outbound HTTP connections potentially made by the Win.Trojan.OilRig malware, indicating the use of HTTP protocols, possibly for command and control activities or data exfiltration, which aligns with the technique of using common web protocols to facilitate communication with the C2 server.""
+ }",['T1071.001'],['TA0008'],['TA0011']
+58814,"{
+   ""Sid"": ""58814"",
+   ""Technique ID"": ""T1193"",
+   ""Technique Name"": ""Spearphishing Attachment"",
+   ""Quotes"": ""The adversary attempts to have an unsuspecting user download a file through their web browsers, email, or other elements, which include the feature of executing files with '.class' extensions that could potentially be malicious Java applets."",
+   ""Explanation"": ""The rule is designed to detect HTTP requests where the User-Agent header suggests that Java is being used, possibly to download a Java class file. Java applets (files with the '.class' extension) can be used maliciously when executed, potentially resulting in actions that compromise the system's security. This maps to the Spearphishing Attachment technique because the downloading of such malicious files could be initiated by spearphishing campaigns to execute code on the target's system.""
+ }",['T1193'],['TA0011'],[]
+37386,"{
+   ""Sid"": ""37386"",
+   ""Technique ID"": ""T1078"",
+   ""Technique Name"": ""Valid Accounts"",
+   ""Quotes"": ""Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion."",
+   ""Explanation"": ""This rule detects login attempts using default credentials ('user:public' in Base64 encoding) to a web application, which aligns with obtaining and using valid accounts of a system (default accounts in this case) for malicious intent. The rule explicitly mentions a default password login attempt, suggesting the abuse of account credentials.""
+ }",['T1078'],['TA0001'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']"
+30523,"{
+   ""Sid"": ""30523"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""An adversary may attempt to take advantage of a weakness in an Internet-facing computer or program using software, data, or commands in order to cause unintended or unanticipated behavior."",
+   ""Explanation"": ""This Snort IDS rule is designed to detect attempts to exploit a known vulnerability in OpenSSL TLSv1.2, specifically a heartbeat read overrun attempt. This type of exploitation targets public-facing applications or services that use vulnerable versions of OpenSSL for secure communications over the ports listed in the rule. Such exploitation techniques are categorized under exploiting public-facing applications as they primarily target services exposed to the external network.""
+ }",['T1190'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']",['TA0001']
+30523,"
+ {
+   ""Sid"": 7159,
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Commonly captured data includes keystrokes and input from built-in sensors."",
+   ""Explanation"": ""This IDS rule specifically mentions 'Keylogger win-spy runtime detection' which directly aligns with the 'Input Capture' technique, particularly detecting activities related to capturing keystrokes as indicated in the technique description.""
+ }
+ ",['T1056'],['TA0009'],"['TA0006', 'TA0009']"
+37382,"{
+   ""Sid"": ""37382"",
+   ""Technique ID"": ""T1078"",
+   ""Technique Name"": ""Valid Accounts"",
+   ""Quotes"": ""Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion."",
+   ""Explanation"": ""The Snort rule detects an attempt to use default credentials (represented by the Base64 encoded string 'dXNlcjpwYXNzd2Q=' which translates to 'user:passwd') to log in to a web application. This activity directly aligns with the MITRE ATT&CK technique 'Valid Accounts', where adversaries use known credentials to gain unauthorized access. Using default or commonly used credentials is a common tactic under this technique.""
+ }",['T1078'],"['TA0006', 'TA0009']","['TA0005', 'TA0001', 'TA0004', 'TA0003']"
+33942,"{
+   ""Sid"": ""33942"",
+   ""Technique ID"": ""T1204"",
+   ""Technique Name"": ""User Execution"",
+   ""Quotes"": ""An adversary may rely on the execution of malicious code by an unsuspecting user to gain execution"",
+   ""Explanation"": ""The rule detects the download of executable control panel (.cpl) files, which can be a method by which attackers induce users to unknowingly execute malicious software, fitting into the MITRE ATT&CK model where an adversary relies on user execution of a script or binary.""
+ }",['T1204'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']",['TA0002']
+38565,"{
+   ""Sid"": ""38565"",
+   ""Technique ID"": ""T1197"",
+   ""Technique Name"": ""BITS Jobs"",
+   ""Quotes"": ""User-Agent|3A 20|Microsoft BITS"",
+   ""Explanation"": ""This rule includes a specific string `Microsoft BITS` which directly indicates the use of Background Intelligent Transfer Service (BITS). BITS is a component of Microsoft Windows that provides the ability to create background file transfers. The `T1197 BITS Jobs` technique involves the misuse of BITS by adversaries to download, execute, and even clean up after executing malicious code, without triggering network defense mechanisms that monitor network traffic.""
+ }",['T1197'],['TA0005'],"['TA0005', 'TA0003']"
+38724,"{
+   ""Sid"": ""38724"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""MITRE ATT&CK enumerates Input Capture under 'Collect: Input Capture' (T1056), which includes keylogging or other methods of capturing user input."",
+   ""Explanation"": ""This rule triggers on HTTP traffic that contains keywords suggesting data collection by a keylogger (e.g., 'Keylogger Enabled'). The content in the Snort rule directly aligns with input capture tactics, specifically involving techniques related to keyboard input monitoring.""
+ }",['T1056'],"['TA0005', 'TA0003']","['TA0006', 'TA0009']"
+5880,"{
+   ""Sid"": ""5880"",
+   ""Technique ID"": ""T1566.003"",
+   ""Technique Name"": ""Phishing: Spearphishing Attachment"",
+   ""Quotes"": ""Spearphishing attachment may arrive in an email message...Users can be subjected to social engineering to open the attachment for reasons that seem plausible."",
+   ""Explanation"": ""The rule detects the specific content in SMTP traffic that suggests the delivery of keylogger activity logs via email, indicating a spearphishing attempt involving an email attachment designed to look legitimate to the recipient.""
+ }",['T1566.003'],"['TA0006', 'TA0009']",['TA0001']
+58738,"{
+   ""Sid"": ""58738"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The adversary is trying to execute unauthorized commands or code via a public-facing application."",
+   ""Explanation"": ""This Snort IDS rule detects attempts to exploit the Apache Log4j remote code execution vulnerability often found in public-facing web applications. The rule looks for specific patterns in HTTP headers that are indicative of an exploitation attempt, correlating with the exploitation of public-facing applications to execute arbitrary code remotely.""
+ }",['T1190'],"['TA0006', 'TA0009']",['TA0001']
+32312,"{
+   ""Sid"": ""32312"",
+   ""Technique ID"": ""T1071.004"",
+   ""Technique Name"": ""Application Layer Protocol: DNS"",
+   ""Quotes"": ""Adversaries may communicate over a commonly used port to bypass firewalls or network detection systems and to blend with normal network activity to avoid more detailed inspection."",
+   ""Explanation"": ""The rule detects traffic heading to port 53, which is the standard port for DNS traffic. The content specified in the rule (|06|beacon) is suspected to be a beacon mechanism using DNS, aligning with how DNS can be used for command and control communication.""
+ }",['T1071.004'],['TA0001'],['TA0011']
+32312,"{
+   ""Sid"": 48231,
+   ""Technique ID"": ""T1220"",
+   ""Technique Name"": ""XSL Script Processing"",
+   ""Quotes"": ""the adversary may abuse this feature to execute arbitrary files or commands via malicious XSL content."",
+   ""Explanation"": ""The rule targets attempts to inject malicious XSL transformations in Apache Syncope. This matches the description of T1220 as it involves the processing of XSL scripts which can potentially be exploited to execute code or commands, aligning with the purpose of the detected activity in the Snort rule.""
+ }",['T1220'],['TA0010'],['TA0005']
+58751,"{
+   ""Sid"": ""58751"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The use of an application-flaw to execute code remotely through the exploitation of a service."",
+   ""Explanation"": ""The Snort rule is designed to detect attempts to exploit a vulnerability in the Apache Log4j through crafted payloads, typically aimed at public-facing applications such as mail servers.""
+ }",['T1190'],['TA0005'],['TA0001']
+52621,"{
+   ""Sid"": ""52621"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Adversaries may exploit software vulnerabilities in client applications to execute code. Adversaries may host a website or a malicious file to deliver a client-side exploit."",
+   ""Explanation"": ""The rule detects an attempt to execute AppleScript code through a web browser (specifically Apple Safari), likely via a crafted JavaScript that triggers on a keydown event. This behavior fits the exploitation of a client-side vulnerability (in this case, the browser), where malicious scripts or code exploit software vulnerabilities to execute unintended actions on the client's system.""
+ }",['T1203'],['TA0001'],['TA0002']
+20593,"{
+   ""Sid"": ""20593"",
+   ""Technique ID"": ""T1550.002"",
+   ""Technique Name"": ""Use Alternate Authentication Material: Pass the Hash"",
+   ""Quotes"": ""exploiting libraries such as libxslt to inject or create arbitrary files, often as part of initial access or persistence attempts by reusing existing credentials"",
+   ""Explanation"": ""The rule references 'Apple Safari Webkit libxslt arbitrary file creation attempt' which implies that an attacker is attempting to exploit a library, in this case, libxslt, possibly to execute arbitrary commands or create files. This could be part of an effort to authenticate using compromised hash credentials (pass the hash) to maintain persistence or escalate privileges within a system by reusing existing credentials, which is characteristic of the Pass the Hash technique.""
+ }",['T1550.002'],['TA0002'],"['TA0005', 'TA0008']"
+46067,"{
+   ""Sid"": ""46067"",
+   ""Technique ID"": ""T1176"",
+   ""Technique Name"": ""Browser Extensions"",
+   ""Quotes"": ""Adversaries may abuse browser extensions to execute code in browsers or obtain sensitive data. Extensions can include, among other things, browser toolbars, ad blockers, and components that log web browsing history, track search queries, or record keystrokes."",
+   ""Explanation"": ""The Snort IDS rule indicates detection of a malware known as Win.Trojan.yty attempting to establish a connection potentially for downloading additional malicious components. The specific mention of 'pc=' and 'pc_data=' in the HTTP client body suggests data exfiltration or command and control activity typical of browser extension misuse, which aligns with the technique specified in the rule itself, T1176 - Browser Extensions. The use of the HTTP 'Expect: 100-continue' header indicates an anticipation of a continued transaction, common in scenarios where extensions are used maliciously to communicate sensitive data.""
+ }",['T1176'],['TA0005'],['TA0003']
+19324,"{
+   ""Sid"": ""19324"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Keylogger functionality to capture keystrokes."",
+   ""Explanation"": ""The Snort rule describes the detection of a keylogger, specifically 'WL-Keylogger'. Keyloggers are commonly used to record the keystrokes of a user without their knowledge, which fits within the 'Input Capture' technique defined in MITRE ATT&CK taxonomy under technique ID T1056.""
+ }",['T1056'],['TA0003'],"['TA0006', 'TA0009']"
+10100,"{
+   ""Sid"": ""10100"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Keylogger"",
+   ""Explanation"": ""The Snort IDS rule describes the detection of a malware known as 'win32.remotekeylog.b', specifically focused on its behavior to open a website which is a typical behavior in keylogging for data exfiltration. The MITRE ATT&CK technique 'Input Capture' (T1056) directly corresponds with keylogging activities where inputs from the user, like keystrokes, are captured by malware. The keyword 'Keylogger' in the rule's message indicates the capture of user input which is why T1056 was chosen.""
+ }",['T1056'],"['TA0006', 'TA0009']","['TA0006', 'TA0009']"
+45968,"{
+   ""Sid"": ""45968"",
+   ""Technique ID"": ""T1020"",
+   ""Technique Name"": ""Automated Exfiltration"",
+   ""Quotes"": ""\""Win.Trojan.UDPOS outbound data exfiltration\"""",
+   ""Explanation"": ""The Snort rule specifically detects exfiltration via DNS traffic, which is a method of automated exfiltration where data is sent out of the network without user interaction. The rule targets malware that uses DNS as a channel to exfiltrate compromised data, aligning with the MITRE ATT&CK definition of Automated Exfiltration.""
+ }",['T1020'],"['TA0006', 'TA0009']",['TA0010']
+25391,"{
+   ""Sid"": ""25391"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Adversaries may exploit software vulnerabilities in client applications to execute code."",
+   ""Explanation"": ""This rule detects attempts to download an obfuscated payload typically associated with the Sweet Orange exploit kit, which often targets vulnerabilities in client software to execute unauthorized code. The rule specifically monitors HTTP traffic for patterns indicative of this exploit technique, aligning with the 'Exploitation for Client Execution' technique by aiming to run code through exploitation of vulnerable client applications.""
+ }",['T1203'],['TA0010'],['TA0002']
+4916,"
+ {
+   ""Sid"": ""4916"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Technique often relies on using software vulnerabilities (like buffer overflows, and other execution flaws) to execute adversary-controlled code on a user's system."",
+   ""Explanation"": ""This rule detects attempts to exploit a buffer overflow in Microsoft Internet Explorer to execute arbitrary code through malicious JavaScript. The use of 'document.write' with obfuscated overflow attempts aligns with exploitation tactics to execute code.""
+ }
+ ",['T1203'],['TA0005'],['TA0002']
+18556,"{
+   ""Sid"": ""18556"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""An adversary may abuse legitimate extensible components of servers after they have been installed and operate in the victim environment to establish persistence."",
+   ""Explanation"": ""The rule targets SQL injection attempts on a Symantec software's web application component. The technique Server Software Component is relevant because the exploitation happens through abuse of a legitimate extensible server component on a public-facing application.""
+ }",['T1505'],['TA0005'],['TA0003']
+27967,"{
+   ""Sid"": ""27967"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may modify server software binaries to establish persistent access to systems."",
+   ""Explanation"": ""The rule detects an interaction with a web shell, which is often a modification or addition to web server components. The specific detection of 'Win.Backdoor.Chopper' suggests this web shell is used to modify server components for persistence, command execution, and data manipulation.""
+ }",['T1505'],['TA0006'],['TA0003']
+20175,"{
+   ""Sid"": ""20175"",
+   ""Technique ID"": ""T1211"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Technique T1211 pertains to exploiting software vulnerabilities to execute arbitrary code on the client."",
+   ""Explanation"": ""The Snort rule aims to detect attempts to exploit a known vulnerability in the Microsoft Windows Remote Desktop Client ActiveX control, which an attacker could leverage for arbitrary code execution within the context of the browser process.""
+ }",['T1211'],['TA0001'],['TA0005']
+44698,"{
+   ""Sid"": ""44698"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The adversary is trying to use an exploit on a public-facing application"",
+   ""Explanation"": ""The Snort IDS rule with sid:44698 detects attempts to exploit web applications by looking for the presence of '$IFS' in HTTP URI, which might indicate shell injection or other server-side attacks exploiting internal field separators. This behavior aligns closely with the MITRE ATT&CK technique T1190, which involves the exploitation of vulnerabilities in public-facing applications.""
+ }",['T1190'],['TA0003'],['TA0001']
+2278,"{
+   ""Sid"": ""2278"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""\""exploit public-facing applications to gain initial access to a victims network.\"""",
+   ""Explanation"": ""This rule detects attempts to exploit a vulnerability in web applications by sending an HTTP request with an unusually large or negative Content-Length, which is a common technique used in buffer overflow attacks against web servers. This matches the Exploit Public-Facing Application technique, as it involves manipulating public-facing web application inputs to execute unauthorized actions.""
+ }",['T1190'],['TA0008'],['TA0001']
+59354,"{
+   ""Sid"": ""59354"",
+   ""Technique ID"": ""T1505.003"",
+   ""Technique Name"": ""Server Software Component: Web Shell"",
+   ""Quotes"": ""\""Web shells can be used to leverage remote access to web servers.\"""",
+   ""Explanation"": ""The Snort rule is designed to detect attempts to upload a PHP web shell, labeled as 'Php.Webshell.SmallShell'. This relates to the MITRE ATT&CK technique 'Server Software Component: Web Shell' because the content patterns in the rule, such as shell execution commands within HTTP payloads, are characteristic of web shell exploitation to execute commands remotely on a web server.""
+ }",['T1505.003'],['TA0001'],['TA0003']
+12128,"{
+   ""Sid"": ""12128"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Collects sensitive data by recording user input, such as capturing keystrokes via software keylogger."",
+   ""Explanation"": ""The rule triggers on network traffic indicative of a keylogger initialization connection. This directly connects with MITRE ATT&CK's 'Input Capture' technique, specifically with the use of software keyloggers to intercept and record user inputs, which is a common behavior of malware like the one detected by the rule.""
+ }",['T1056'],['TA0002'],"['TA0006', 'TA0009']"
+12128,"{
+   ""Sid"": 7552,
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Common credential access behavior includes keylogging"",
+   ""Explanation"": ""The Snort rule detects traffic patterns related to the Ardamax keylogger, which is a type of malware designed to capture keystrokes. This aligns with the MITRE ATT&CK technique T1056 - Input Capture, which covers methods including keylogging.""
+ }",['T1056'],['TA0003'],"['TA0006', 'TA0009']"
+30517,"{
+   ""Sid"": ""30517"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The technique involves exploiting weaknesses in external-facing systems to execute code or to persist within the network."",
+   ""Explanation"": ""This rule detects a possible exploitation attempt against a vulnerability in SSL known as Heartbleed (CVE-2014-0160), impacting public-facing applications that use the OpenSSL library for TLSv1.2. The rule specifically looks for unusually large heartbeat responses that may indicate exploitative traffic, correlating with the MITRE technique of exploiting public-facing applications to gain initial access or execute arbitrary code.""
+ }",['T1190'],"['TA0006', 'TA0009']",['TA0001']
+300357,"{
+   ""Sid"": ""300357"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Technique T1505, 'Server Software Component', highlights the abuse of webshells by threat actors to execute commands on servers."",
+   ""Explanation"": ""The specific IDS rule detects an attempt to transfer a PHP webshell (hidden shell). Webshells are malicious scripts that attackers upload to a server to enable remote administration. Once uploaded, the server's software environment becomes a tool for further intrusion and control, aligning with the MITRE ATT&CK definition for Technique T1505, which involves attackers targeting components commonly used within an enterprise server to facilitate control or access.""
+ }",['T1505'],"['TA0006', 'TA0009']",['TA0003']
+27957,"{
+   ""Sid"": ""27957"",
+   ""Technique ID"": ""T1060"",
+   ""Technique Name"": ""Registry Run Keys / Startup Folder"",
+   ""Quotes"": ""Adversaries may achieve persistence by adding a program to a startup folder or referencing it with a registry run key."",
+   ""Explanation"": ""The Snort rule describes an attempt to download a rootkit (OSX.Trojan.Renepo) that appears to move itself to a System Library StartupItem, which is a method adversaries use to ensure persistence by placing malware in startup locations. The registry run keys and startup folder technique (T1060) directly corresponds to this behavior as it involves adding programs to startup areas to automatically execute upon system login.""
+ }",['T1060'],['TA0009'],[]
+30785,"{
+   ""Sid"": ""30785"",
+   ""Technique ID"": ""T1190"",
+   ""Technique Name"": ""Exploit Public-Facing Application"",
+   ""Quotes"": ""The rule detects a potential SSL Heartbleed attack on public-facing applications, specifically targeting vulnerabilities in SSLv3, which is often enabled on public servers that require encrypted communication.""
+   ""Explanation"": ""The Snort rule provided is designed to detect attempts to exploit the Heartbleed vulnerability in OpenSSL. The Heartbleed bug is a serious vulnerability in the popular OpenSSL cryptographic software library. It allows stealing the information protected, under normal conditions, by the SSL/TLS encryption used to secure the Internet. OpenSSL is used widely in public-facing applications to secure communications, and exploiting this vulnerability fits directly under the technique of exploiting public-facing applications.""
+ }",['T1190'],['TA0003'],['TA0001']
+41457,"{
+   ""Sid"": ""41457"",
+   ""Technique ID"": ""T1566.001"",
+   ""Technique Name"": ""Phishing: Spearphishing Attachment"",
+   ""Quotes"": ""Adversaries may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems."",
+   ""Explanation"": ""The Snort rule is triggered by a specific User-Agent string known to be associated with malware, in this case, Elite Keylogger. This matches the technique where spearphishing might use emails with malicious attachments or links that appear normal but are controlled by the attacker. The rule's focus on a known malicious user-agent suggests monitoring for indicators tied to spearphishing attempts.""
+ }",['T1566.001'],['TA0005'],['TA0001']
+36100,"{
+   ""Sid"": ""36100"",
+   ""Technique ID"": ""T1078"",
+   ""Technique Name"": ""Valid Accounts"",
+   ""Quotes"": ""Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion."",
+   ""Explanation"": ""The rule explicitly detects an authentication attempt using default credentials ('userName=IntegrationUser', 'password=plugin') to a ManageEngine OpManager application. This directly relates to T1078, as the technique involves adversaries using valid accounts to gain access. In this case, the default credentials signify a pre-existing valid account potentially abused by an adversary.""
+ }",['T1078'],['TA0009'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']"
+29608,"{
+   ""Sid"": ""29608"",
+   ""Technique ID"": ""T1505"",
+   ""Technique Name"": ""Server Software Component"",
+   ""Quotes"": ""Adversaries may execute their own malicious payloads by hijacking the binaries used by processes. Services can be loaded at startup using linked shared object, extension, or plug-in files."",
+   ""Explanation"": ""This rule is detecting an SQL injection attempt in McAfee ePO, which is a web application. SQL injection is a common method by which adversaries might attempt to execute arbitrary SQL code on a backend database. The detection of an SQL injection attempt signifies a potential effort to compromise the server software components themselves, thus making T1505 a relevant technique.""
+ }",['T1505'],"['TA0006', 'TA0009']",['TA0003']
+12771,"{
+   ""Sid"": ""12771"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""The technique description states: 'Adversaries may exploit software vulnerabilities in client applications to execute code.'"",
+   ""Explanation"": ""The Snort rule is designed to catch attempts to exploit a specific vulnerability in the BaoFeng Storm MPS.dll ActiveX control, potentially leading to arbitrary code execution within the context of the browser. This aligns with the MITRE ATT&CK technique of exploitation for client execution, which focuses on leveraging vulnerabilities to execute code on a client application.""
+ }",['T1203'],"['TA0005', 'TA0001', 'TA0004', 'TA0003']",['TA0002']
+7544,"{
+   ""Sid"": ""7544"",
+   ""Technique ID"": ""T1056"",
+   ""Technique Name"": ""Input Capture"",
+   ""Quotes"": ""Keylogger PerfectKeylogger detection"",
+   ""Explanation"": ""The Snort IDS rule detects SMTP traffic that includes content related to 'PerfectKeylogger', which is a known keylogging software. The detection of this keyword associated with outgoing SMTP traffic implies that the rule is designed to capture attempts at exfiltrating data captured via keylogging. Keylogging falls under 'Input Capture', which is used to capture keystrokes of a user, qualifying it for MITRE ATT&CK technique ID T1056.""
+ }",['T1056'],['TA0001'],"['TA0006', 'TA0009']"
+7544,"{
+   ""Sid"": 13480,
+   ""Technique ID"": ""T1563"",
+   ""Technique Name"": ""Remote System Discovery"",
+   ""Quotes"": ""Applications and files are utilized to gather information."",
+   ""Explanation"": ""This Snort rule detects attempts to send out emails possibly containing data collected by a keylogger, a form of surveillance typically used to capture and exfiltrate sensitive information such as credentials and other private data. This corresponds with the broader implications of the Remote System Discovery technique, where attackers often gather information about systems as a part of their reconnaissance activities. Although not a perfect match, the concept of gathering data aligns with the malicious behavior targeted by the rule.""
+ }",['T1563'],['TA0005'],['TA0008']
+56862,"{
+   ""Sid"": ""56862"",
+   ""Technique ID"": ""T1071.001"",
+   ""Technique Name"": ""Application Layer Protocol: Web Protocols"",
+   ""Quotes"": ""Adversaries may communicate using application layer protocols associated with web traffic to avoid detection/network filtering by blending in with existing traffic. Commands to the implant can be embedded inside of HTTP headers, cookies, and other HTTP locations."",
+   ""Explanation"": ""The Snort rule detects HTTP POST requests indicative of malware command and control communication, specifically blocking when specific HTTP header fields like 'Referer', 'Accept', and 'Cookie' are missing, which is uncommon in regular web traffic. This aligns with the technique where web protocols are used by malware for communication to blend with normal traffic and avoid detection.""
+ }",['T1071.001'],"['TA0006', 'TA0009']",['TA0011']
+50104,"{
+   ""Sid"": ""50104"",
+   ""Technique ID"": ""T1187"",
+   ""Technique Name"": ""Forced Authentication"",
+   ""Quotes"": ""Adversaries may attempt to force authentication in order to collect credentials"",
+   ""Explanation"": ""This rule is designed to detect attempts at SMB negotiation, which could involve forced authentication attacks where the attacker illicitly induces the server to authenticate to a system they control using techniques like SMB relay (Responder). The Snort rule's content and the content related to SMB negotiations align with the adversarial objective described in MITRE ATT&CK's Forced Authentication technique.""
+ }",['T1187'],"['TA0006', 'TA0009']",['TA0006']
+48532,"{
+   ""Sid"": ""48532"",
+   ""Technique ID"": ""T1203"",
+   ""Technique Name"": ""Exploitation for Client Execution"",
+   ""Quotes"": ""Technique T1203 involves exploiting software vulnerabilities to execute arbitrary code."",
+   ""Explanation"": ""The rule suggests detecting an attempt to bypass VBScript execution policy in Internet Explorer 11 using a crafted email content, possibly involving XML transformation-related exploitation. This aligns with the Exploitation for Client Execution technique where adversaries exploit software vulnerabilities to execute arbitrary code.""
+ }",['T1203'],['TA0011'],['TA0002']
+48532,"{
+   ""Sid"": 5784,
+   ""Technique ID"": ""T1563"",
+   ""Technique Name"": ""Remote System Discovery"",
+   ""Quotes"": ""The technique aims to identify remote systems and potentially gather relevant information about their configurations."",
+   ""Explanation"": ""The IDS rule detects potential keylogger activity transmitting data using SMTP, suggesting the attempt could involve collecting data about remote system activities such as URLs browsed, which aligns with techniques for discovering activities on remote systems.""
+ }",['T1563'],['TA0006'],['TA0008']
+47461,"{
+   ""Sid"": ""47461"",
+   ""Technique ID"": ""T1068"",
+   ""Technique Name"": ""Exploitation for Privilege Escalation"",
+   ""Quotes"": ""The rule mentions 'ActiveX privilege escalation attempt', indicating an attempt to exploit software vulnerabilities to gain higher-level permissions."",
+   ""Explanation"": ""The Snort rule specifies a detection for an ActiveX control potentially attempting to escalate privileges, which aligns with the MITRE ATT&CK definition of T1068 where adversaries exploit software vulnerabilities to gain elevated privileges.""
+ }",['T1068'],['TA0005'],['TA0004']
